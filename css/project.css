@@ -1,7 +1,4 @@
-/* =========================================================
-   Project case-study pages (projects/*.html)
-   Builds on style.css: same tokens, type and hairline rules.
-   ========================================================= */
+/* Project case-study pages, built on top of style.css */
 
 /* ---------- Sticky page header ---------- */
 .pd-header {

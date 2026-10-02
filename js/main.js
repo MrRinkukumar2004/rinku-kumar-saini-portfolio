@@ -61,10 +61,8 @@
     }
   }));
 
-  /* ---------- Contact form ----------
-     Default: opens the visitor's email app with the message filled in.
-     To receive messages directly, create a free form at formspree.io and add
-     data-endpoint="https://formspree.io/f/XXXXXXX" to the <form> tag. */
+  /* ---------- Contact form ---------- */
+  // Opens the visitor's mail app; add data-endpoint="https://formspree.io/f/…" to the form to send directly
   const form = $("#contact-form");
   const status = $("#form-status");
   if (form) {

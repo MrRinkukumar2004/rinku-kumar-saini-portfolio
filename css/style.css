@@ -1,9 +1,4 @@
-/* =========================================================
-   Rinku Kumar Saini – Portfolio
-   Quiet, editorial layout. One accent colour, hairline rules,
-   a mono face for metadata. Two themes: dark (default) and light,
-   switched with <html data-theme="…"> by js/theme.js.
-   ========================================================= */
+/* Rinku Kumar Saini – portfolio styles (dark default, light via data-theme) */
 :root {
   /* Palette – dark */
   --bg: #0D0E11;
@@ -236,6 +231,27 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .stack { font-family: var(--mono); font-size: 0.78rem; color: var(--faint); line-height: 1.7; margin: 4px 0 24px; }
 .work-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 22px; margin-top: auto; font-size: 0.93rem; }
 
+/* Services */
+.avail { display: inline-flex; align-items: center; gap: 10px; margin: 18px 0 0; font-family: var(--mono); font-size: 0.8rem; color: var(--ok); }
+.services { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+.services > li { position: relative; padding: 30px 32px 30px 0; border-bottom: 1px solid var(--line); }
+.services > li:nth-child(even) { padding-left: 32px; padding-right: 0; border-left: 1px solid var(--line); }
+.svc-num { display: block; margin-bottom: 14px; font-family: var(--mono); font-size: 0.76rem; color: var(--faint); transition: color .25s; }
+.services h3 { font-size: 1.2rem; letter-spacing: -0.02em; margin-bottom: 8px; }
+.services p { color: var(--muted); margin: 0; max-width: 46ch; }
+.services > li:not(.svc-cta):hover .svc-num { color: var(--accent); }
+.svc-cta { display: flex; flex-direction: column; align-items: flex-start; }
+.svc-cta h3 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.7rem; letter-spacing: -0.01em; margin-top: 2px; }
+.svc-cta p { margin-bottom: 20px; }
+
+.process { margin-top: 64px; }
+.process-label { font-family: var(--mono); font-size: 0.78rem; color: var(--faint); margin-bottom: 16px; }
+.process ol { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: none; }
+.process li { padding: 20px 24px 0 0; border-top: 1px solid var(--line-strong); color: var(--muted); font-size: 0.92rem; line-height: 1.55; }
+.process li + li { padding-left: 24px; }
+.process li span { display: block; font-family: var(--mono); font-size: 0.76rem; color: var(--faint); margin-bottom: 10px; }
+.process li strong { display: block; color: var(--text); font-weight: 500; font-size: 1rem; margin-bottom: 4px; }
+
 /* Skills */
 .skill-table { margin-top: 40px; border-bottom: 1px solid var(--line); }
 .skill-table > div { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--line); }
@@ -341,6 +357,10 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
   .facts-row > div:nth-child(3) { padding-left: 0; border-left: 0; }
   .facts-row > div:nth-child(n+3) { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--line); }
   .work-pair { grid-template-columns: 1fr; }
+  .services { grid-template-columns: 1fr; }
+  .services > li, .services > li:nth-child(even) { padding: 26px 0; border-left: 0; }
+  .process ol { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+  .process li:nth-child(3) { padding-left: 0; }
   .contact-grid { grid-template-columns: 1fr; }
   .nav-cta { display: none; }
   .menu-btn { display: grid; }
@@ -364,6 +384,8 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
   .facts-row > div + div { padding-left: 14px; }
   .focus-list li, .skill-table > div, .xp > li { grid-template-columns: 1fr; gap: 6px; }
   .xp-when { line-height: 1.6; }
+  .process ol { grid-template-columns: 1fr; row-gap: 22px; }
+  .process li, .process li + li { padding-left: 0; padding-right: 0; }
   .xp-now { display: inline-flex; margin-left: 10px; }
   .work-body, .work-feature .work-body { padding: 22px; }
 }

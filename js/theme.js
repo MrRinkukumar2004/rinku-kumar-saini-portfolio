@@ -1,6 +1,4 @@
-/* Light / dark theme.
-   Loaded in <head> (not deferred) so the saved theme is applied before first paint.
-   Order of preference: the visitor's saved choice, then their system setting. */
+// Light/dark theme: loaded in <head> so the saved choice (or system setting) applies before first paint
 (() => {
   const root = document.documentElement;
   const KEY = "theme";
