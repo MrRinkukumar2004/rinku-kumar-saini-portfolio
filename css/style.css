@@ -157,6 +157,29 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 :root[data-theme="light"] .theme-btn .i-sun { transform: rotate(90deg) scale(.5); opacity: 0; }
 :root[data-theme="light"] .theme-btn .i-moon { transform: none; opacity: 1; }
 
+/* Share button + menu */
+.share { position: relative; }
+.icon-btn {
+  width: 36px; height: 36px; flex: none; border-radius: 8px; display: grid; place-items: center; cursor: pointer;
+  border: 1px solid var(--line); background: transparent; color: var(--muted); transition: color .2s, border-color .2s;
+}
+.icon-btn:hover, .icon-btn[aria-expanded="true"] { color: var(--text); border-color: var(--line-strong); }
+.share-menu {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 60; min-width: 220px; padding: 6px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 18px 40px -16px var(--shadow); animation: pop .18s var(--ease);
+}
+.share-menu[hidden] { display: none; }
+.share-title { margin: 4px 10px 6px; font-family: var(--mono); font-size: 0.74rem; color: var(--faint); }
+.share-menu a, .share-menu button {
+  display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 10px;
+  border: 0; border-radius: 6px; background: none; color: var(--text); font-size: 0.9rem; text-align: left; cursor: pointer; transition: background .15s;
+}
+.share-menu a:hover, .share-menu button:hover, .share-menu a:focus-visible, .share-menu button:focus-visible { background: var(--surface-2); outline: none; }
+.share-menu a span, .share-menu .ic { color: var(--faint); }
+.share-menu .ic { width: 15px; height: 15px; }
+.share-menu .done, .share-menu .done .ic { color: var(--ok); }
+
 /* ---------- Hero ---------- */
 .hero { padding-top: calc(var(--header-h) + 88px); padding-bottom: 88px; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 72px; align-items: center; }

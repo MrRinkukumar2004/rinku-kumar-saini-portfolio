@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mrrinkukumar2004.github.io/sitemap.xml
+Sitemap: https://rinku-kumar-saini-portfolio.vercel.app/sitemap.xml

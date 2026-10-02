@@ -8,14 +8,14 @@
   <meta name="keywords" content="Rinku Kumar Saini, Full Stack Developer, Backend Developer, Node.js Developer, TypeScript, Microservices, gRPC, PostgreSQL, Redis, FinTech, Crypto Exchange, Jaipur">
   <meta name="author" content="Rinku Kumar Saini">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://mrrinkukumar2004.github.io/">
+  <link rel="canonical" href="https://rinku-kumar-saini-portfolio.vercel.app/">
   <meta name="theme-color" content="#0D0E11">
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Rinku Kumar Saini | Full Stack Developer">
   <meta property="og:description" content="Full Stack Developer building FinTech and crypto exchange systems with Node.js, TypeScript and microservices.">
-  <meta property="og:url" content="https://mrrinkukumar2004.github.io/">
-  <meta property="og:image" content="https://mrrinkukumar2004.github.io/og-image.png">
+  <meta property="og:url" content="https://rinku-kumar-saini-portfolio.vercel.app/">
+  <meta property="og:image" content="https://rinku-kumar-saini-portfolio.vercel.app/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Rinku Kumar Saini | Full Stack Developer">
   <meta name="twitter:description" content="Node.js, TypeScript, PostgreSQL, Redis, gRPC microservices. FinTech and crypto exchange systems.">
@@ -25,18 +25,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=9">
 
   <script>document.documentElement.classList.add("js");</script>
-  <script src="js/theme.js?v=8"></script>
+  <script src="js/theme.js?v=9"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Rinku Kumar Saini",
     "jobTitle": "Full Stack Developer",
-    "url": "https://mrrinkukumar2004.github.io/",
-    "image": "https://mrrinkukumar2004.github.io/images/profile.jpg",
+    "url": "https://rinku-kumar-saini-portfolio.vercel.app/",
+    "image": "https://rinku-kumar-saini-portfolio.vercel.app/images/profile.jpg",
     "email": "mailto:sainirinku1604@gmail.com",
     "address": { "@type": "PostalAddress", "addressLocality": "Jaipur", "addressRegion": "Rajasthan", "addressCountry": "IN" },
     "worksFor": { "@type": "Organization", "name": "WrathCode Technology Private Limited" },
@@ -79,6 +79,7 @@
       <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
       <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
       <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></symbol>
       <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
       <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
       <symbol id="i-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7M12 19V5"/></symbol>
@@ -103,6 +104,18 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="share">
+        <button class="icon-btn" id="share-btn" type="button" aria-label="Share this portfolio" title="Share this portfolio" aria-haspopup="true" aria-expanded="false" aria-controls="share-menu"><svg class="ic"><use href="#i-share"/></svg></button>
+        <div class="share-menu" id="share-menu" hidden>
+          <p class="share-title">Share this portfolio</p>
+          <button type="button" data-share="copy"><span class="share-copy-label">Copy link</span><svg class="ic"><use href="#i-copy"/></svg></button>
+          <a data-share="linkedin" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a data-share="whatsapp" target="_blank" rel="noopener">WhatsApp <span aria-hidden="true">↗</span></a>
+          <a data-share="x" target="_blank" rel="noopener">X (Twitter) <span aria-hidden="true">↗</span></a>
+          <a data-share="email">Email <span aria-hidden="true">↗</span></a>
+          <button type="button" data-share="native" hidden>More options…</button>
+        </div>
+      </div>
       <button class="theme-btn" type="button" aria-label="Switch theme"><svg class="ic i-sun"><use href="#i-sun"/></svg><svg class="ic i-moon"><use href="#i-moon"/></svg></button>
       <a class="btn btn-outline btn-sm nav-cta" href="resume.pdf" download>Résumé</a>
       <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
@@ -414,6 +427,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=8" defer></script>
+  <script src="js/main.js?v=9" defer></script>
 </body>
 </html>

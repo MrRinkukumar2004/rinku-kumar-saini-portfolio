@@ -33,6 +33,49 @@
   }, { rootMargin: "-45% 0px -50% 0px" });
   ["#home", ...navLinks.map((a) => a.getAttribute("href"))].forEach((id) => { const s = $(id); if (s) navObs.observe(s); });
 
+  /* ---------- Share menu ---------- */
+  const shareBtn = $("#share-btn");
+  const shareMenu = $("#share-menu");
+  if (shareBtn && shareMenu) {
+    // Share the live site even when the page is opened from a local file
+    const url = $('link[rel="canonical"]')?.href || location.href;
+    const text = "Rinku Kumar Saini – Full Stack Developer (Node.js, TypeScript, microservices)";
+    const enc = encodeURIComponent;
+    const links = {
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`,
+      whatsapp: `https://wa.me/?text=${enc(text + " " + url)}`,
+      x: `https://twitter.com/intent/tweet?text=${enc(text)}&url=${enc(url)}`,
+      email: `mailto:?subject=${enc("Portfolio: Rinku Kumar Saini")}&body=${enc(text + "\n" + url)}`,
+    };
+    Object.entries(links).forEach(([k, href]) => { const a = $(`[data-share="${k}"]`, shareMenu); if (a) a.href = href; });
+
+    const native = $('[data-share="native"]', shareMenu);
+    if (navigator.share) native.hidden = false;
+
+    const setShare = (open) => {
+      shareMenu.hidden = !open;
+      shareBtn.setAttribute("aria-expanded", String(open));
+      if (open) $("button, a", shareMenu).focus();
+    };
+    shareBtn.addEventListener("click", (e) => { e.stopPropagation(); setShare(shareMenu.hidden); });
+    document.addEventListener("click", (e) => { if (!shareMenu.hidden && !e.target.closest(".share")) setShare(false); });
+    addEventListener("keydown", (e) => { if (e.key === "Escape" && !shareMenu.hidden) { setShare(false); shareBtn.focus(); } });
+    $$("a", shareMenu).forEach((a) => a.addEventListener("click", () => setShare(false)));
+
+    const copyBtn = $('[data-share="copy"]', shareMenu);
+    copyBtn.addEventListener("click", async () => {
+      const label = $(".share-copy-label", copyBtn), use = $("use", copyBtn);
+      try { await navigator.clipboard.writeText(url); label.textContent = "Link copied"; }
+      catch { label.textContent = url; }
+      copyBtn.classList.add("done"); use.setAttribute("href", "#i-check");
+      setTimeout(() => { copyBtn.classList.remove("done"); use.setAttribute("href", "#i-copy"); label.textContent = "Copy link"; setShare(false); }, 1400);
+    });
+    native.addEventListener("click", async () => {
+      setShare(false);
+      try { await navigator.share({ title: document.title, text, url }); } catch { /* cancelled */ }
+    });
+  }
+
   /* ---------- Reveal on scroll ---------- */
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
