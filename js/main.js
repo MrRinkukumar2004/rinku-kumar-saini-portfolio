@@ -190,6 +190,9 @@
     else img.addEventListener("error", swap);
   });
 
+  // Stagger index for the skill chips' pop-in animation
+  $$(".skill-card").forEach((card) => $$("li", card).forEach((li, i) => li.style.setProperty("--i", i)));
+
   /* ---------- Timeline progress line ---------- */
   const tl = $("#timeline");
   const tlFill = $(".t-line span");
