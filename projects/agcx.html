@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AGCX – Arab Global Crypto Exchange | Rinku Kumar Saini</title>
+  <meta name="description" content="How Rinku Kumar Saini built the backend for AGCX, a regulated microservices crypto exchange: wallets, transactions, fiat on/off-ramp, KYC, Fireblocks custody and Passkeys auth.">
+  <meta name="author" content="Rinku Kumar Saini">
+  <link rel="canonical" href="https://mrrinkukumar2004.github.io/projects/agcx.html">
+  <meta name="theme-color" content="#070B1A">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AGCX – Arab Global Crypto Exchange | Rinku Kumar Saini">
+  <meta property="og:description" content="Regulated microservices crypto exchange: wallets, transactions, fiat on/off-ramp, KYC and security.">
+  <meta property="og:url" content="https://mrrinkukumar2004.github.io/projects/agcx.html">
+  <meta property="og:image" content="https://mrrinkukumar2004.github.io/images/agcx.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23070B1A'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='800' font-size='26' text-anchor='middle' fill='%235AA2FF'%3ERS%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/project.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="pd-header">
+    <div class="container pd-bar">
+      <a class="pd-back" href="../index.html#projects" aria-label="Back to all projects"><svg class="ic"><use href="#i-back"/></svg></a>
+      <div class="pd-heading">
+        <h1>AGCX – Arab Global Crypto Exchange</h1>
+        <p><span><svg class="ic"><use href="#i-calendar"/></svg>Jun 2026 – Present</span><span class="pd-loc"><svg class="ic"><use href="#i-briefcase"/></svg>WrathCode Technology</span></p>
+      </div>
+      <div class="pd-actions">
+        <a class="btn btn-primary btn-sm pd-live" href="https://arabglobal.ae" target="_blank" rel="noopener">Live site <svg class="ic"><use href="#i-external"/></svg></a>
+        <a class="pd-round li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmrrinkukumar2004.github.io%2Fprojects%2Fagcx.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg class="ic"><use href="#i-linkedin"/></svg></a>
+        <button class="pd-round sh" id="share" aria-label="Share this project"><svg class="ic"><use href="#i-share"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container pd-layout">
+    <nav class="toc" aria-label="On this page">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#built">What I built</a></li>
+        <li><a href="#integrations">Integrations</a></li>
+        <li><a href="#security">Security &amp; access</a></li>
+        <li><a href="#stack">Tech stack</a></li>
+      </ol>
+    </nav>
+
+    <main class="pd-main">
+      <section class="pd-card reveal" id="overview">
+        <p class="eyebrow"><span class="eyebrow-line"></span>FinTech · Crypto exchange</p>
+        <h2>Overview</h2>
+        <p class="pd-lead">AGCX is a regulated, microservices-based crypto exchange for UAE and global markets. Users deposit in AED, buy, sell and hold digital assets, with KYC and a full back office for the operations team.</p>
+        <p>I work on it as a <strong>Full Stack Developer with a backend focus</strong>, building the services behind wallets, transactions, fiat on/off-ramp, KYC and security.</p>
+        <ul class="facts">
+          <li><span>Role</span><strong>Full Stack Developer</strong></li>
+          <li><span>Company</span><strong>WrathCode Technology</strong></li>
+          <li><span>Timeline</span><strong>Jun 2026 – Present</strong></li>
+          <li><span>Live at</span><strong><a href="https://arabglobal.ae" target="_blank" rel="noopener">arabglobal.ae</a></strong></li>
+        </ul>
+        <div class="gallery">
+          <figure>
+            <button class="shot-btn" aria-label="Enlarge screenshot"><img src="../images/agcx.jpg" alt="AGCX crypto exchange home page" loading="lazy"></button>
+            <figcaption>AGCX home page (arabglobal.ae)</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="pd-card reveal" id="built">
+        <h2>What I built</h2>
+        <ul class="checks">
+          <li><svg class="ic"><use href="#i-check"/></svg>Services for buy/sell, wallets, deposits, withdrawals, transfers, currency management, referral, KYC and admin.</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>The transaction lifecycle: state handling, validation, provider status tracking and failure recovery.</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Fiat-to-crypto and crypto-to-fiat flows with Zand Bank and CryptoSwift.</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>PostgreSQL and MongoDB schemas, with Redis caching.</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>gRPC communication between services, following DDD and Clean Architecture.</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Containerized services deployed with Docker and Kubernetes.</li>
+        </ul>
+      </section>
+
+      <section class="pd-card reveal" id="integrations">
+        <h2>Integrations</h2>
+        <p>Third-party providers I integrated into the exchange:</p>
+        <ul class="tiles">
+          <li><strong>Fireblocks</strong><span>Digital asset custody and wallets</span></li>
+          <li><strong>Chainalysis</strong><span>Transaction screening</span></li>
+          <li><strong>Binance</strong><span>Exchange integration</span></li>
+          <li><strong>Zand Bank</strong><span>AED fiat on/off-ramp</span></li>
+          <li><strong>CryptoSwift</strong><span>Fiat and crypto conversion flows</span></li>
+          <li><strong>Didit KYC</strong><span>Identity verification</span></li>
+        </ul>
+      </section>
+
+      <section class="pd-card reveal" id="security">
+        <h2>Security &amp; access</h2>
+        <p>An exchange moves real money, so authentication and authorization had to be strict for both users and the back office.</p>
+        <ul class="tiles">
+          <li><strong>Passkeys</strong><span>Passwordless sign-in</span></li>
+          <li><strong>OAuth 2.0 / OIDC</strong><span>Google and Apple sign-in</span></li>
+          <li><strong>API keys</strong><span>Key management for programmatic access</span></li>
+          <li><strong>RBAC / ABAC / PBAC</strong><span>Role, attribute and policy-based control for sensitive financial operations</span></li>
+        </ul>
+      </section>
+
+      <section class="pd-card reveal" id="stack">
+        <h2>Tech stack</h2>
+        <ul class="tags"><li>Node.js</li><li>TypeScript</li><li>PostgreSQL</li><li>MongoDB</li><li>Redis</li><li>gRPC</li><li>REST</li><li>DDD</li><li>Clean Architecture</li><li>Docker</li><li>Kubernetes</li></ul>
+      </section>
+
+      <nav class="pd-nav reveal" aria-label="More projects">
+        <a href="../index.html#projects"><span><svg class="ic flip"><use href="#i-arrow"/></svg>Back to</span><strong>All projects</strong></a>
+        <a class="next" href="walker.html"><span>Next project<svg class="ic"><use href="#i-arrow"/></svg></span><strong>Walker Red Blue – CRM &amp; Work Orders</strong></a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="pd-footer">
+    <div class="container">
+      <p>© <span id="year">2026</span> Rinku Kumar Saini</p>
+      <a href="../index.html#contact">Get in touch →</a>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Screenshot">
+    <button class="m-close" id="lb-close" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
+    <img alt="">
+    <p></p>
+  </dialog>
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="../js/project.js" defer></script>
+</body>
+</html>

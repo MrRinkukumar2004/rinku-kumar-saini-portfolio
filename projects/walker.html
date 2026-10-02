@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Walker Red Blue – CRM &amp; Work Order Platform | Rinku Kumar Saini</title>
+  <meta name="description" content="How Rinku Kumar Saini built Walker Red Blue, the CRM, work order and payment platform for Design2Occupancy: 400+ REST and gRPC APIs, Tally ERP integration and real-time notifications.">
+  <meta name="author" content="Rinku Kumar Saini">
+  <link rel="canonical" href="https://mrrinkukumar2004.github.io/projects/walker.html">
+  <meta name="theme-color" content="#070B1A">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Walker Red Blue – CRM &amp; Work Order Platform | Rinku Kumar Saini">
+  <meta property="og:description" content="CRM, work order and payment platform with 400+ REST and gRPC APIs and Tally ERP integration.">
+  <meta property="og:url" content="https://mrrinkukumar2004.github.io/projects/walker.html">
+  <meta property="og:image" content="https://mrrinkukumar2004.github.io/images/walker.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23070B1A'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='800' font-size='26' text-anchor='middle' fill='%235AA2FF'%3ERS%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/project.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="pd-header">
+    <div class="container pd-bar">
+      <a class="pd-back" href="../index.html#projects" aria-label="Back to all projects"><svg class="ic"><use href="#i-back"/></svg></a>
+      <div class="pd-heading">
+        <h1>Walker Red Blue – CRM &amp; Work Order Platform</h1>
+        <p><span><svg class="ic"><use href="#i-calendar"/></svg>Jun 2024 – May 2026</span><span class="pd-loc"><svg class="ic"><use href="#i-briefcase"/></svg>Octodo Solutions</span></p>
+      </div>
+      <div class="pd-actions">
+        <a class="btn btn-primary btn-sm pd-live" href="https://wbhubs.walker-blue.com" target="_blank" rel="noopener">Admin panel <svg class="ic"><use href="#i-external"/></svg></a>
+        <a class="pd-round li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmrrinkukumar2004.github.io%2Fprojects%2Fwalker.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg class="ic"><use href="#i-linkedin"/></svg></a>
+        <button class="pd-round sh" id="share" aria-label="Share this project"><svg class="ic"><use href="#i-share"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container pd-layout">
+    <nav class="toc" aria-label="On this page">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#built">What I built</a></li>
+        <li><a href="#integrations">Integrations</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#stack">Tech stack</a></li>
+      </ol>
+    </nav>
+
+    <main class="pd-main">
+      <section class="pd-card reveal" id="overview">
+        <p class="eyebrow"><span class="eyebrow-line"></span>CRM &amp; ERP · Internal platform</p>
+        <h2>Overview</h2>
+        <p class="pd-lead">Walker Red Blue is the internal operations platform for <strong>Design2Occupancy</strong>, a green building and energy-efficiency consultancy. It connects sales, project delivery and accounts in one system.</p>
+        <p>I built it as a <strong>Full Stack Developer at Octodo Solutions</strong>, from the backend services and APIs through to integrations with the company's accounting and CRM tools.</p>
+        <ul class="facts">
+          <li><span>Role</span><strong>Full Stack Developer</strong></li>
+          <li><span>Company</span><strong>Octodo Solutions</strong></li>
+          <li><span>Timeline</span><strong>Jun 2024 – May 2026</strong></li>
+          <li><span>Access</span><strong>Admin panel, login required</strong></li>
+        </ul>
+        <div class="gallery">
+          <figure>
+            <button class="shot-btn" aria-label="Enlarge screenshot"><img src="../images/walker.jpg" alt="Walker Red Blue admin panel sign-in page" loading="lazy"></button>
+            <figcaption>Walker Red Blue admin panel (wbhubs.walker-blue.com)</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="pd-card reveal" id="built">
+        <h2>What I built</h2>
+        <ul class="checks">
+          <li><svg class="ic"><use href="#i-check"/></svg>400+ REST APIs and gRPC services across CRM, projects, reporting and notifications.</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Domain services: Project Dashboard, Feasibility, EnergyQC, RepGenX, Notification, Support &amp; Communication.</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Work order and payment management.</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>RBAC, ABAC and PBAC access control with JWT and OAuth 2.0 authentication.</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Real-time notifications over WebSockets, plus background processing.</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Query and index tuning on PostgreSQL and MS SQL Server.</li>
+        </ul>
+      </section>
+
+      <section class="pd-card reveal" id="integrations">
+        <h2>Integrations</h2>
+        <p>The platform connects to the tools the team already used, so data doesn't have to be entered twice:</p>
+        <ul class="tiles">
+          <li><strong>Tally ERP</strong><span>Accounts and marketing, with automated payment reminders and deadline follow-ups</span></li>
+          <li><strong>HubSpot CRM</strong><span>CRM integration</span></li>
+          <li><strong>Insightly CRM</strong><span>CRM integration</span></li>
+          <li><strong>Google Drive</strong><span>File storage integration</span></li>
+          <li><strong>Google OAuth</strong><span>Sign-in for the team</span></li>
+        </ul>
+      </section>
+
+      <section class="pd-card reveal" id="results">
+        <h2>Results</h2>
+        <ul class="metrics">
+          <li><strong class="grad">400+</strong><span>REST and gRPC APIs shipped</span></li>
+          <li><strong class="grad">~25%</strong><span>Faster database queries after tuning</span></li>
+          <li><strong class="grad">6</strong><span>Domain services built</span></li>
+        </ul>
+      </section>
+
+      <section class="pd-card reveal" id="stack">
+        <h2>Tech stack</h2>
+        <ul class="tags"><li>Node.js</li><li>TypeScript</li><li>React.js</li><li>PostgreSQL</li><li>MS SQL Server</li><li>Sequelize</li><li>gRPC</li><li>REST</li><li>WebSockets</li></ul>
+      </section>
+
+      <nav class="pd-nav reveal" aria-label="More projects">
+        <a href="agcx.html"><span><svg class="ic flip"><use href="#i-arrow"/></svg>Previous project</span><strong>AGCX – Arab Global Crypto Exchange</strong></a>
+        <a class="next" href="d2o.html"><span>Next project<svg class="ic"><use href="#i-arrow"/></svg></span><strong>Design2Occupancy – Website &amp; CMS</strong></a>
+      </nav>
+    </main>
+  </div>
+
+  <footer class="pd-footer">
+    <div class="container">
+      <p>© <span id="year">2026</span> Rinku Kumar Saini</p>
+      <a href="../index.html#contact">Get in touch →</a>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Screenshot">
+    <button class="m-close" id="lb-close" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
+    <img alt="">
+    <p></p>
+  </dialog>
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="../js/project.js" defer></script>
+</body>
+</html>
