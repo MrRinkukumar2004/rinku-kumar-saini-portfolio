@@ -19,6 +19,7 @@
   --header-bg: rgba(13, 14, 17, 0.78);
   --menu-bg: rgba(13, 14, 17, 0.97);
   --shadow: rgba(0, 0, 0, 0.45);
+  --btn-hover: #FFFFFF;
 
   /* Aliases used by the project pages */
   --card-bg: var(--surface);
@@ -57,6 +58,7 @@
   --header-bg: rgba(250, 250, 248, 0.82);
   --menu-bg: rgba(250, 250, 248, 0.98);
   --shadow: rgba(23, 24, 27, 0.08);
+  --btn-hover: #33353B;
   --soft: rgba(23, 24, 27, 0.025);
   color-scheme: light;
 }
@@ -101,8 +103,7 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .btn:hover .ic { transform: translateX(3px); }
 .btn:active { transform: translateY(1px); }
 .btn-primary { background: var(--text); color: var(--bg); }
-.btn-primary:hover { background: var(--accent); color: var(--bg); }
-:root[data-theme="light"] .btn-primary:hover { color: #fff; }
+.btn-primary:hover { background: var(--btn-hover); }
 .btn-outline { border-color: var(--line-strong); color: var(--text); background: transparent; }
 .btn-outline:hover { border-color: var(--text); }
 .btn-ghost { border-color: var(--line); color: var(--muted); background: transparent; }
@@ -311,17 +312,32 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .muted-note a { color: var(--text); background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 100% 1px; }
 
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 48px; margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
-.form { display: grid; gap: 18px; }
-.field { display: grid; gap: 7px; }
-.field label { font-size: 0.86rem; color: var(--muted); }
-.field input, .field textarea {
-  width: 100%; padding: 11px 13px; border-radius: var(--radius-sm); border: 1px solid var(--line);
-  background: var(--surface); color: var(--text); font: inherit; font-size: 0.95rem; resize: vertical;
-  transition: border-color .2s, box-shadow .2s;
+.form { display: grid; gap: 26px; padding-top: 8px; }
+/* Floating labels: rest inside the empty field, then rise into a notch on the border */
+.field { position: relative; }
+.field label {
+  position: absolute; top: 26px; left: 9px; z-index: 1; transform: translateY(-50%); transform-origin: left center;
+  padding: 0 6px; line-height: 1.2; font-size: 0.95rem; color: var(--faint); pointer-events: none;
+  background: linear-gradient(var(--bg), var(--bg)) top / 100% 0% no-repeat, var(--surface);
+  transition: top .28s var(--ease), transform .28s var(--ease), color .2s, background-size .28s var(--ease);
 }
-.field input::placeholder, .field textarea::placeholder { color: var(--placeholder); }
-.field input:hover, .field textarea:hover { border-color: var(--line-strong); }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+.field input, .field textarea {
+  display: block; width: 100%; padding: 16px 14px 13px; border-radius: var(--radius-sm); border: 1px solid var(--line-strong);
+  background: var(--surface); color: var(--text); font: inherit; font-size: 0.95rem; resize: vertical;
+  transition: border-color .2s;
+}
+.field textarea { min-height: 132px; }
+.field input::placeholder, .field textarea::placeholder { color: var(--placeholder); opacity: 0; transition: opacity .2s; }
+.field textarea:focus::placeholder { opacity: 1; transition-delay: .12s; }
+.field input:hover, .field textarea:hover { border-color: var(--faint); }
+.field :focus + label,
+.field :not(:placeholder-shown) + label {
+  top: 0; transform: translateY(-50%) scale(0.82); color: var(--muted); background-size: 100% 50%, auto;
+}
+.field :-webkit-autofill + label { top: 0; transform: translateY(-50%) scale(0.82); background-size: 100% 50%, auto; }
+.field :focus + label { color: var(--text); }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--text); }
+.field.invalid label { color: #E5484D; }
 .field.invalid input, .field.invalid textarea { border-color: #E5484D; }
 .form-foot { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; }
 .form-status { margin: 0; font-size: 0.88rem; color: var(--muted); }
