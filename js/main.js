@@ -203,8 +203,23 @@
   /* ---------- Project filter ---------- */
   const filters = $$(".filter");
   const cards = $$(".project");
+  const pill = $(".filter-pill");
+  function movePill() {
+    const on = $(".filter.is-on");
+    if (!pill || !on) return;
+    pill.style.width = on.offsetWidth + "px";
+    pill.style.height = on.offsetHeight + "px";
+    pill.style.transform = `translate(${on.offsetLeft}px, ${on.offsetTop}px)`;
+  }
+  if (pill) {
+    movePill();
+    requestAnimationFrame(() => pill.parentElement.classList.add("has-pill"));
+    addEventListener("resize", movePill);
+    document.fonts?.ready.then(movePill);
+  }
   filters.forEach((btn) => btn.addEventListener("click", () => {
     filters.forEach((b) => { b.classList.toggle("is-on", b === btn); b.setAttribute("aria-selected", String(b === btn)); });
+    movePill();
     const f = btn.dataset.filter;
     cards.forEach((c) => {
       const show = f === "all" || c.dataset.cat === f;
