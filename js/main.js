@@ -104,6 +104,15 @@
         r: Math.random() * 1.6 + 0.8,
       }));
     }
+    // Node colors per theme: [links, mouse links, mouse-near node, node]
+    const PALETTE = {
+      dark: ["90,162,255", "120,180,255", "#9CC6FF", "rgba(120,170,255,0.8)"],
+      light: ["37,99,235", "79,70,229", "#4F46E5", "rgba(37,99,235,0.7)"],
+    };
+    let pal = PALETTE.dark;
+    const setPal = () => { pal = PALETTE[document.documentElement.dataset.theme] || PALETTE.dark; };
+    setPal();
+    document.documentElement.addEventListener("themechange", () => { setPal(); if (reduce) draw(); });
     function draw() {
       ctx.clearRect(0, 0, w, h);
       const link = 130;
@@ -112,16 +121,16 @@
         for (let j = i + 1; j < nodes.length; j++) {
           const b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
           if (d < link) {
-            ctx.strokeStyle = `rgba(90,162,255,${(1 - d / link) * 0.35})`;
+            ctx.strokeStyle = `rgba(${pal[0]},${(1 - d / link) * 0.35})`;
             ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
         }
         const md = Math.hypot(a.x - mouse.x, a.y - mouse.y);
         if (md < 170) {
-          ctx.strokeStyle = `rgba(120,180,255,${(1 - md / 170) * 0.6})`;
+          ctx.strokeStyle = `rgba(${pal[1]},${(1 - md / 170) * 0.6})`;
           ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
         }
-        ctx.fillStyle = md < 170 ? "#9CC6FF" : "rgba(120,170,255,0.8)";
+        ctx.fillStyle = md < 170 ? pal[2] : pal[3];
         ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
       }
     }
