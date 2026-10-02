@@ -12,7 +12,7 @@
   function apply(theme) {
     root.setAttribute("data-theme", theme);
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "light" ? "#F5F8FE" : "#070B1A");
+    if (meta) meta.setAttribute("content", theme === "light" ? "#FAFAF8" : "#0D0E11");
     document.querySelectorAll(".theme-btn").forEach((b) => {
       const next = theme === "light" ? "dark" : "light";
       b.setAttribute("aria-label", `Switch to ${next} theme`);

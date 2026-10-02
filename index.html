@@ -9,7 +9,7 @@
   <meta name="author" content="Rinku Kumar Saini">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://mrrinkukumar2004.github.io/">
-  <meta name="theme-color" content="#070B1A">
+  <meta name="theme-color" content="#0D0E11">
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Rinku Kumar Saini | Full Stack Developer">
@@ -24,7 +24,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
   <script>document.documentElement.classList.add("js");</script>
@@ -91,21 +91,19 @@
   </svg>
 
   <a class="skip" href="#main">Skip to content</a>
-  <div class="progress" aria-hidden="true"><span></span></div>
 
   <header class="header" id="header">
     <nav class="nav container" aria-label="Main">
-      <a class="logo" href="#home"><span class="logo-mark">RS</span>Rinku Kumar Saini</a>
+      <a class="logo" href="#home" aria-label="Rinku Kumar Saini, home"><span class="logo-mark">rks</span><span class="logo-name">Rinku Kumar Saini</span></a>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#home" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#work">Work</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="theme-btn" type="button" aria-label="Switch theme"><svg class="ic i-sun"><use href="#i-sun"/></svg><svg class="ic i-moon"><use href="#i-moon"/></svg></button>
-      <a class="btn btn-primary btn-sm nav-cta" href="#contact">Get in touch</a>
+      <a class="btn btn-outline btn-sm nav-cta" href="resume.pdf" download>Résumé</a>
       <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
         <svg class="ic"><use href="#i-menu"/></svg>
       </button>
@@ -115,169 +113,108 @@
   <main id="main">
     <!-- ============ HERO ============ -->
     <section class="hero" id="home">
-      <canvas id="network" aria-hidden="true"></canvas>
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <p class="hello"><span class="wave" aria-hidden="true">👋</span> Hi, I'm</p>
-          <h1 class="name">Rinku <span class="grad">Kumar Saini</span></h1>
-          <p class="role" aria-live="polite"><span id="typed">Full Stack Developer</span><span class="caret" aria-hidden="true"></span></p>
-          <ul class="chips" aria-label="Main technologies">
-            <li>Node.js</li><li>TypeScript</li><li>React</li><li>PostgreSQL</li><li>Redis</li><li>gRPC</li>
-          </ul>
-          <p class="intro">I build scalable backend systems and web applications with Node.js, TypeScript and microservices. Right now I'm building wallets, transactions and security for a regulated crypto exchange in the UAE.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#projects">View my projects <svg class="ic"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn-outline" href="resume.pdf" download>Download resume <svg class="ic"><use href="#i-download"/></svg></a>
-          </div>
-          <div class="hero-meta">
-            <div class="socials">
-              <a href="https://github.com/MrRinkukumar2004" target="_blank" rel="noopener me" aria-label="GitHub"><svg class="ic"><use href="#i-github"/></svg></a>
-              <a href="https://www.linkedin.com/in/rinku-kumar-saini" target="_blank" rel="noopener me" aria-label="LinkedIn"><svg class="ic"><use href="#i-linkedin"/></svg></a>
-              <a href="https://leetcode.com/u/JackSparrow_01/" target="_blank" rel="noopener me" aria-label="LeetCode"><svg class="ic"><use href="#i-leetcode"/></svg></a>
-              <a href="https://medium.com/@sainirinku1604" target="_blank" rel="noopener me" aria-label="Medium"><svg class="ic"><use href="#i-medium"/></svg></a>
-              <a href="https://www.crio.do/learn/portfolio/sainirinku1604/" target="_blank" rel="noopener me" aria-label="Crio.Do portfolio"><svg class="ic"><use href="#i-award"/></svg></a>
-              <a href="mailto:sainirinku1604@gmail.com" aria-label="Email"><svg class="ic"><use href="#i-mail"/></svg></a>
-            </div>
-            <p class="where"><svg class="ic"><use href="#i-pin"/></svg> Jaipur, Rajasthan <span class="sep"></span> <span class="live-dot"></span> Immediate joiner</p>
-          </div>
-        </div>
-
-        <div class="hero-visual" id="hero-visual">
-          <div class="ring" aria-hidden="true"></div>
-          <div class="blob" aria-hidden="true"></div>
-          <div class="photo">
-            <img src="images/profile.jpg" alt="Rinku Kumar Saini" width="640" height="798" onerror="this.parentElement.classList.add('no-img');this.remove()">
-            <span class="photo-fallback" aria-hidden="true">RS</span>
-          </div>
-          <div class="float f1"><svg class="ic"><use href="#i-server"/></svg>Node.js</div>
-          <div class="float f2"><svg class="ic"><use href="#i-database"/></svg>PostgreSQL</div>
-          <div class="float f3"><svg class="ic"><use href="#i-network"/></svg>gRPC</div>
-          <div class="float f4"><svg class="ic"><use href="#i-shield"/></svg>RBAC</div>
-        </div>
-      </div>
-
       <div class="container">
-        <ul class="stats">
-          <li class="stat spot reveal"><span class="stat-ic"><svg class="ic"><use href="#i-calendar"/></svg></span><div><strong><span class="count" data-to="2">2</span>+</strong><span>Years experience</span></div></li>
-          <li class="stat spot reveal"><span class="stat-ic"><svg class="ic"><use href="#i-code"/></svg></span><div><strong><span class="count" data-to="400">400</span>+</strong><span>APIs developed</span></div></li>
-          <li class="stat spot reveal"><span class="stat-ic"><svg class="ic"><use href="#i-wallet"/></svg></span><div><strong><span class="count" data-to="6">6</span></strong><span>FinTech integrations</span></div></li>
-          <li class="stat spot reveal"><span class="stat-ic"><svg class="ic"><use href="#i-zap"/></svg></span><div><strong>~<span class="count" data-to="25">25</span>%</strong><span>Faster queries</span></div></li>
-        </ul>
+        <div class="hero-grid">
+          <div class="hero-text">
+            <p class="kicker reveal"><span class="live-dot" aria-hidden="true"></span>Immediate joiner · Jaipur, India</p>
+            <h1 class="hero-title reveal">Rinku Kumar Saini builds backend systems for products that <em>move real money</em>.</h1>
+            <p class="intro reveal">Full stack developer, mostly backend. I work in Node.js, TypeScript and PostgreSQL, and right now I'm on the wallets, transactions and security layer of a regulated crypto exchange in the UAE.</p>
+            <div class="actions reveal">
+              <a class="btn btn-primary" href="#work">See selected work <svg class="ic"><use href="#i-arrow"/></svg></a>
+              <a class="link-arrow" href="resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+          <figure class="portrait reveal">
+            <div class="portrait-frame">
+              <img src="images/profile.jpg" alt="Portrait of Rinku Kumar Saini" width="640" height="798" onerror="this.parentElement.classList.add('no-img');this.remove()">
+              <span class="photo-fallback" aria-hidden="true">RKS</span>
+            </div>
+            <figcaption>Currently at WrathCode Technology</figcaption>
+          </figure>
+        </div>
+
+        <dl class="facts-row reveal">
+          <div><dt>2+ years</dt><dd>building production systems</dd></div>
+          <div><dt>400+</dt><dd>REST and gRPC APIs shipped</dd></div>
+          <div><dt>6</dt><dd>payment and compliance integrations</dd></div>
+          <div><dt>~25%</dt><dd>faster queries after index tuning</dd></div>
+        </dl>
       </div>
     </section>
 
     <!-- ============ ABOUT ============ -->
-    <section class="section about" id="about">
-      <span class="orb orb-1" aria-hidden="true"></span>
-      <span class="orb orb-2" aria-hidden="true"></span>
-      <div class="container about-grid">
-        <div class="about-text">
-          <p class="eyebrow reveal"><span class="eyebrow-line"></span>Who I am</p>
-          <h2 class="title reveal">About <span class="grad">me</span></h2>
-          <p class="subtitle reveal">Get to know me</p>
-          <p class="reveal">I'm a Full Stack Developer with 2+ years of experience building scalable web applications and backend systems using Node.js, TypeScript, PostgreSQL, MongoDB, Redis and modern cloud tooling. I specialize in microservices architecture, secure authentication and integrating third-party services.</p>
-          <p class="reveal">Currently I'm working on <strong class="hl">AGCX</strong>, a regulated crypto exchange for the UAE market, covering wallets, transactions, fiat on/off-ramp, KYC and security. Before that I built the complete digital platform for <strong class="hl">Design2Occupancy</strong>: website, CMS, CRM, work order and payment management, and Tally ERP integration, with 400+ REST and gRPC APIs.</p>
-         
-          <div class="about-actions reveal">
-            <a class="btn btn-primary btn-shine" href="resume.pdf" download>Download resume <svg class="ic"><use href="#i-download"/></svg></a>
-            <a class="btn btn-outline" href="#contact">Let's talk <svg class="ic"><use href="#i-arrow"/></svg></a>
-            <span class="where"><svg class="ic"><use href="#i-pin"/></svg> Jaipur, Rajasthan</span>
-          </div>
-        </div>
-        <div class="focus-wrap reveal">
-          <div class="focus panel">
-            <p class="focus-head">What I focus on</p>
-            <ul>
-              <li style="--i:0"><span class="f-ic"><svg class="ic"><use href="#i-server"/></svg></span><div><strong>Backend &amp; full stack development</strong><span>Node.js, TypeScript, React</span></div></li>
-              <li style="--i:1"><span class="f-ic"><svg class="ic"><use href="#i-layers"/></svg></span><div><strong>Microservices &amp; Domain-Driven Design</strong><span>Clear service boundaries that scale</span></div></li>
-              <li style="--i:2"><span class="f-ic"><svg class="ic"><use href="#i-database"/></svg></span><div><strong>PostgreSQL, MongoDB &amp; Redis</strong><span>Schema design, indexing, caching</span></div></li>
-              <li style="--i:3"><span class="f-ic"><svg class="ic"><use href="#i-network"/></svg></span><div><strong>REST APIs &amp; gRPC</strong><span>400+ APIs shipped to production</span></div></li>
-              <li style="--i:4"><span class="f-ic"><svg class="ic"><use href="#i-shield"/></svg></span><div><strong>Auth &amp; access control</strong><span>OAuth, Passkeys, RBAC / ABAC</span></div></li>
-              <li style="--i:5"><span class="f-ic"><svg class="ic"><use href="#i-box"/></svg></span><div><strong>Docker &amp; Kubernetes</strong><span>Containerized, reproducible deploys</span></div></li>
-            </ul>
-          </div>
+    <section class="section" id="about">
+      <div class="container split">
+        <header class="sec-head reveal"><span class="sec-num">01</span><h2 class="title">About</h2></header>
+        <div class="sec-body">
+          <p class="lead reveal">I like the parts of software most people never see: the services, schemas and failure paths that decide whether a payment actually goes through.</p>
+          <p class="reveal">I've spent a little over two years building web applications and backend systems with Node.js, TypeScript, PostgreSQL, MongoDB and Redis. Most of that work has been microservices, authentication and wiring products into third-party providers.</p>
+          <p class="reveal">At <strong>WrathCode Technology</strong> I work on AGCX, a regulated crypto exchange: wallets, transactions, fiat on/off-ramp, KYC and security. Before that, at <strong>Octodo Solutions</strong>, I built the whole digital platform for Design2Occupancy, from the public website and CMS to the CRM, work orders, payments and a Tally ERP integration. That came to more than 400 REST and gRPC APIs.</p>
+
+          <ul class="focus-list reveal" aria-label="What I focus on">
+            <li><strong>Backend &amp; full stack</strong><span>Node.js, TypeScript, React</span></li>
+            <li><strong>Microservices &amp; DDD</strong><span>Clear service boundaries, gRPC between them</span></li>
+            <li><strong>Data</strong><span>PostgreSQL, MongoDB and Redis: schemas, indexes, caching</span></li>
+            <li><strong>Auth &amp; access</strong><span>OAuth 2.0 / OIDC, Passkeys, RBAC / ABAC / PBAC</span></li>
+            <li><strong>Delivery</strong><span>Docker and Kubernetes</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ============ PROJECTS ============ -->
-    <section class="section" id="projects">
+    <!-- ============ WORK ============ -->
+    <section class="section" id="work">
       <div class="container">
-        <div class="head-row">
-          <div>
-            <p class="eyebrow reveal"><span class="eyebrow-line"></span>My work</p>
-            <h2 class="title reveal">My <span class="grad">Projects</span></h2>
-            <p class="subtitle reveal">Real-world applications built with modern technologies, solving practical problems and running in production.</p>
-          </div>
-          <div class="filters reveal" role="tablist" aria-label="Filter projects">
-            <span class="filter-pill" aria-hidden="true"></span>
-            <button class="filter is-on" data-filter="all" role="tab" aria-selected="true"><svg class="ic"><use href="#i-grid"/></svg>All</button>
-            <button class="filter" data-filter="fintech" role="tab" aria-selected="false"><svg class="ic"><use href="#i-database"/></svg>FinTech</button>
-            <button class="filter" data-filter="crm" role="tab" aria-selected="false"><svg class="ic"><use href="#i-briefcase"/></svg>CRM &amp; ERP</button>
-            <button class="filter" data-filter="web" role="tab" aria-selected="false"><svg class="ic"><use href="#i-globe"/></svg>Web &amp; CMS</button>
-          </div>
+        <div class="split split-head">
+          <header class="sec-head reveal"><span class="sec-num">02</span><h2 class="title">Selected work</h2></header>
+          <p class="sec-intro reveal">Three products I've built that are running in production. Each one has a write-up covering what I built and how.</p>
         </div>
 
-        <div class="projects">
-          <article class="project spot reveal" data-cat="fintech" data-id="agcx">
-            <div class="shot" data-label="AGCX">
-              <img src="images/agcx.jpg" alt="AGCX crypto exchange website" loading="lazy" onerror="this.remove()">
-              <span class="shot-badge">FinTech</span>
+        <article class="work work-feature reveal">
+          <a class="work-img" href="projects/agcx.html" tabindex="-1" aria-hidden="true">
+            <img src="images/agcx.jpg" alt="" loading="lazy" onerror="this.remove()">
+          </a>
+          <div class="work-body">
+            <p class="work-meta">FinTech · 2026 – now</p>
+            <h3><a href="projects/agcx.html">AGCX, Arab Global Crypto Exchange</a></h3>
+            <p>A regulated, microservices-based exchange for the UAE. I build the services behind wallets, deposits, withdrawals and the full transaction lifecycle, plus integrations with Fireblocks, Chainalysis, Binance, Zand Bank and Didit KYC.</p>
+            <p class="stack">Node.js · TypeScript · PostgreSQL · MongoDB · Redis · gRPC · Kubernetes</p>
+            <div class="work-links">
+              <a class="link-arrow" href="projects/agcx.html">Read the case study <span aria-hidden="true">→</span></a>
+              <a class="link-plain" href="https://arabglobal.ae" target="_blank" rel="noopener">arabglobal.ae <span aria-hidden="true">↗</span></a>
             </div>
-            <div class="p-body">
-              <h3><a href="projects/agcx.html">AGCX – Arab Global Crypto Exchange</a></h3>
-              <a class="p-url" href="https://arabglobal.ae" target="_blank" rel="noopener"><svg class="ic"><use href="#i-external"/></svg>arabglobal.ae</a>
-              <ul class="tags"><li>Node.js</li><li>TypeScript</li><li>PostgreSQL</li><li>MongoDB</li><li>Redis</li><li>gRPC</li><li>Kubernetes</li><li>Docker</li></ul>
-              <ul class="points">
-                <li>Microservices-based crypto exchange for digital asset trading, wallets, deposits, withdrawals and transactions.</li>
-                <li>Integrated with <strong>Fireblocks</strong>, Chainalysis, Binance, Zand Bank and Didit KYC.</li>
-                <li>Implemented Passkeys, OAuth 2.0/OIDC and RBAC/ABAC/PBAC for secure access and operations.</li>
-              </ul>
-              <div class="p-actions">
-                <a class="btn btn-primary btn-sm" href="https://arabglobal.ae" target="_blank" rel="noopener">Live site <svg class="ic"><use href="#i-external"/></svg></a>
-                <a class="p-more" href="projects/agcx.html">Details <svg class="ic"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+
+        <div class="work-pair">
+          <article class="work reveal">
+            <a class="work-img" href="projects/walker.html" tabindex="-1" aria-hidden="true">
+              <img src="images/walker.jpg" alt="" loading="lazy" onerror="this.remove()">
+            </a>
+            <div class="work-body">
+              <p class="work-meta">CRM &amp; ERP · 2024 – 2026</p>
+              <h3><a href="projects/walker.html">Walker Red Blue</a></h3>
+              <p>The internal operations platform for Design2Occupancy: CRM, projects, work orders and payments, with Tally ERP and real-time notifications. 400+ REST and gRPC APIs.</p>
+              <p class="stack">Node.js · React · PostgreSQL · MS SQL · gRPC · WebSockets</p>
+              <div class="work-links">
+                <a class="link-arrow" href="projects/walker.html">Read the case study <span aria-hidden="true">→</span></a>
+                <a class="link-plain" href="https://wbhubs.walker-blue.com" target="_blank" rel="noopener">Admin panel <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </article>
 
-          <article class="project spot reveal" data-cat="crm" data-id="walker">
-            <div class="shot" data-label="Walker Red Blue">
-              <img src="images/walker.jpg" alt="Walker Red Blue admin panel" loading="lazy" onerror="this.remove()">
-              <span class="shot-badge">CRM &amp; ERP</span>
-            </div>
-            <div class="p-body">
-              <h3><a href="projects/walker.html">Walker Red Blue – CRM &amp; Work Order Platform</a></h3>
-              <a class="p-url" href="https://wbhubs.walker-blue.com" target="_blank" rel="noopener"><svg class="ic"><use href="#i-external"/></svg>wbhubs.walker-blue.com</a>
-              <ul class="tags"><li>Node.js</li><li>React</li><li>PostgreSQL</li><li>MS SQL</li><li>gRPC</li><li>WebSockets</li></ul>
-              <ul class="points">
-                <li>Built <strong>400+ REST APIs</strong> and gRPC services for CRM, project management, work orders, payments and reporting.</li>
-                <li>Integrated Tally ERP with automated payment reminders and project tracking.</li>
-                <li>Implemented real-time notifications using WebSockets.</li>
-              </ul>
-              <div class="p-actions">
-                <a class="btn btn-outline btn-sm" href="https://wbhubs.walker-blue.com" target="_blank" rel="noopener"><svg class="ic"><use href="#i-code"/></svg>Admin panel</a>
-                <a class="p-more" href="projects/walker.html">Details <svg class="ic"><use href="#i-arrow"/></svg></a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project spot reveal" data-cat="web" data-id="d2o">
-            <div class="shot" data-label="Design2Occupancy">
-              <img src="images/d2o.jpg" alt="Design2Occupancy website" loading="lazy" onerror="this.remove()">
-              <span class="shot-badge">Web &amp; CMS</span>
-            </div>
-            <div class="p-body">
-              <h3><a href="projects/d2o.html">Design2Occupancy – Website, CMS &amp; Portfolio</a></h3>
-              <a class="p-url" href="https://www.design2occupancy.com" target="_blank" rel="noopener"><svg class="ic"><use href="#i-external"/></svg>design2occupancy.com</a>
-              <ul class="tags"><li>Website</li><li>Custom CMS</li><li>Automation</li></ul>
-              <ul class="points">
-                <li>Developed a complete website with a custom CMS for dynamic content management.</li>
-                <li>Built an automated project <strong>portfolio</strong> with a ranked showcase for clients.</li>
-                <li>Connected to the CRM, work order and payment management system.</li>
-              </ul>
-              <div class="p-actions">
-                <a class="btn btn-primary btn-sm" href="https://www.design2occupancy.com" target="_blank" rel="noopener">Live site <svg class="ic"><use href="#i-external"/></svg></a>
-                <a class="p-more" href="projects/d2o.html">Details <svg class="ic"><use href="#i-arrow"/></svg></a>
+          <article class="work reveal">
+            <a class="work-img" href="projects/d2o.html" tabindex="-1" aria-hidden="true">
+              <img src="images/d2o.jpg" alt="" loading="lazy" onerror="this.remove()">
+            </a>
+            <div class="work-body">
+              <p class="work-meta">Web &amp; CMS · 2024 – 2026</p>
+              <h3><a href="projects/d2o.html">Design2Occupancy</a></h3>
+              <p>The public website for a green building consultancy, with a custom CMS the team runs themselves and an automated, ranked project portfolio.</p>
+              <p class="stack">Website · Custom CMS · Portfolio automation</p>
+              <div class="work-links">
+                <a class="link-arrow" href="projects/d2o.html">Read the case study <span aria-hidden="true">→</span></a>
+                <a class="link-plain" href="https://www.design2occupancy.com" target="_blank" rel="noopener">design2occupancy.com <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </article>
@@ -287,252 +224,113 @@
 
     <!-- ============ SKILLS ============ -->
     <section class="section" id="skills">
-      <div class="container">
-        <div class="head-row sk-head-row">
-          <div>
-            <p class="eyebrow reveal"><span class="eyebrow-line"></span>My skills</p>
-            <h2 class="title reveal">Technologies &amp; Tools <span class="grad">I Work With</span></h2>
-            <p class="subtitle reveal">I work with modern technologies and tools to build scalable, secure and high-performance applications.</p>
-          </div>
-          <ul class="sk-stats reveal">
-            <li><span class="sk-stat-ic"><svg class="ic"><use href="#i-code"/></svg></span><div><strong><span class="count" data-to="30">30</span>+</strong><span>Technologies</span></div></li>
-            <li><span class="sk-stat-ic"><svg class="ic"><use href="#i-box"/></svg></span><div><strong><span class="count" data-to="6">6</span></strong><span>Categories</span></div></li>
-            <li><span class="sk-stat-ic"><svg class="ic"><use href="#i-zap"/></svg></span><div><strong><span class="count" data-to="2">2</span>+</strong><span>Years experience</span></div></li>
-            <li><span class="sk-stat-ic"><svg class="ic"><use href="#i-network"/></svg></span><div><strong><span class="count" data-to="400">400</span>+</strong><span>APIs shipped</span></div></li>
-          </ul>
-        </div>
-        <div class="skills">
-          <div class="skill-card spot reveal" style="--c: 47,123,255">
-            <div class="sk-top">
-              <span class="sk-ic"><svg class="ic"><use href="#i-server"/></svg></span>
-              <div><h3>Backend</h3><p>Building robust APIs, microservices and scalable backend systems.</p></div>
-              <span class="sk-count">8 skills</span>
-            </div>
-            <ul>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nodejs/nodejs-original.svg" alt="" loading="lazy">Node.js</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" alt="" loading="lazy">TypeScript</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt="" loading="lazy">JavaScript</li>
-              <li><img class="inv" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/express/express-original.svg" alt="" loading="lazy">Express.js</li>
-              <li><svg class="ic"><use href="#i-network"/></svg>REST APIs</li>
-              <li><svg class="ic"><use href="#i-zap"/></svg>gRPC</li>
-              <li><svg class="ic"><use href="#i-send"/></svg>WebSockets</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/sequelize/sequelize-original.svg" alt="" loading="lazy">Sequelize</li>
-            </ul>
-          </div>
-          <div class="skill-card spot reveal" style="--c: 16,185,129">
-            <div class="sk-top">
-              <span class="sk-ic"><svg class="ic"><use href="#i-database"/></svg></span>
-              <div><h3>Databases</h3><p>Managing data with performance, security and reliability.</p></div>
-              <span class="sk-count">6 skills</span>
-            </div>
-            <ul>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="" loading="lazy">PostgreSQL</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mongodb/mongodb-original.svg" alt="" loading="lazy">MongoDB</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt="" loading="lazy">MS SQL Server</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/redis/redis-original.svg" alt="" loading="lazy">Redis</li>
-              <li><svg class="ic"><use href="#i-database"/></svg>Schema design</li>
-              <li><svg class="ic"><use href="#i-zap"/></svg>Query optimization</li>
-            </ul>
-          </div>
-          <div class="skill-card spot reveal" style="--c: 139,92,246">
-            <div class="sk-top">
-              <span class="sk-ic"><svg class="ic"><use href="#i-monitor"/></svg></span>
-              <div><h3>Frontend</h3><p>Creating responsive and interactive user experiences.</p></div>
-              <span class="sk-count">5 skills</span>
-            </div>
-            <ul>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="" loading="lazy">React.js</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/redux/redux-original.svg" alt="" loading="lazy">Redux</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="" loading="lazy">HTML5</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg" alt="" loading="lazy">CSS3</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tailwindcss/tailwindcss-original.svg" alt="" loading="lazy">Tailwind CSS</li>
-            </ul>
-          </div>
-          <div class="skill-card spot reveal" style="--c: 249,115,22">
-            <div class="sk-top">
-              <span class="sk-ic"><svg class="ic"><use href="#i-cloud"/></svg></span>
-              <div><h3>DevOps &amp; Cloud</h3><p>Containerizing, deploying and running services in the cloud.</p></div>
-              <span class="sk-count">6 skills</span>
-            </div>
-            <ul>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="" loading="lazy">Docker</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/kubernetes/kubernetes-original.svg" alt="" loading="lazy">Kubernetes</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg" alt="" loading="lazy">Linux</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nginx/nginx-original.svg" alt="" loading="lazy">Nginx</li>
-              <li><svg class="ic"><use href="#i-server"/></svg>PM2</li>
-              <li><svg class="ic"><use href="#i-cloud"/></svg>AWS</li>
-            </ul>
-          </div>
-          <div class="skill-card spot reveal" style="--c: 244,63,94">
-            <div class="sk-top">
-              <span class="sk-ic"><svg class="ic"><use href="#i-shield"/></svg></span>
-              <div><h3>Architecture &amp; Security</h3><p>Designing scalable systems with strong security principles.</p></div>
-              <span class="sk-count">6 skills</span>
-            </div>
-            <ul>
-              <li><svg class="ic"><use href="#i-layers"/></svg>Microservices</li>
-              <li><svg class="ic"><use href="#i-box"/></svg>DDD</li>
-              <li><svg class="ic"><use href="#i-code"/></svg>Clean Architecture</li>
-              <li><svg class="ic"><use href="#i-shield"/></svg>RBAC / ABAC / PBAC</li>
-              <li><svg class="ic"><use href="#i-lock"/></svg>OAuth 2.0 / OIDC</li>
-              <li><svg class="ic"><use href="#i-lock"/></svg>Passkeys / JWT</li>
-            </ul>
-          </div>
-          <div class="skill-card spot reveal" style="--c: 6,182,212">
-            <div class="sk-top">
-              <span class="sk-ic"><svg class="ic"><use href="#i-tool"/></svg></span>
-              <div><h3>Tools &amp; FinTech</h3><p>Using modern tools and integrating with financial systems.</p></div>
-              <span class="sk-count">6 skills</span>
-            </div>
-            <ul>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="" loading="lazy">Git</li>
-              <li><img class="inv" src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original.svg" alt="" loading="lazy">GitHub Actions</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postman/postman-original.svg" alt="" loading="lazy">Postman</li>
-              <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/swagger/swagger-original.svg" alt="" loading="lazy">Swagger</li>
-              <li><svg class="ic"><use href="#i-wallet"/></svg>Fireblocks</li>
-              <li><svg class="ic"><use href="#i-shield"/></svg>Chainalysis / KYC</li>
-            </ul>
-          </div>
+      <div class="container split">
+        <header class="sec-head reveal"><span class="sec-num">03</span><h2 class="title">Skills</h2></header>
+        <div class="sec-body">
+          <p class="sec-intro reveal">The tools I reach for day to day, grouped roughly by where they sit in a system.</p>
+          <dl class="skill-table reveal">
+            <div><dt>Backend</dt><dd><ul class="inline"><li>Node.js</li><li>TypeScript</li><li>JavaScript</li><li>Express.js</li><li>REST APIs</li><li>gRPC</li><li>WebSockets</li><li>Sequelize</li></ul></dd></div>
+            <div><dt>Databases</dt><dd><ul class="inline"><li>PostgreSQL</li><li>MongoDB</li><li>MS SQL Server</li><li>Redis</li><li>Schema design</li><li>Query optimization</li></ul></dd></div>
+            <div><dt>Architecture &amp; security</dt><dd><ul class="inline"><li>Microservices</li><li>DDD</li><li>Clean Architecture</li><li>RBAC / ABAC / PBAC</li><li>OAuth 2.0 / OIDC</li><li>Passkeys / JWT</li></ul></dd></div>
+            <div><dt>Frontend</dt><dd><ul class="inline"><li>React.js</li><li>Redux</li><li>HTML5</li><li>CSS3</li><li>Tailwind CSS</li></ul></dd></div>
+            <div><dt>DevOps &amp; cloud</dt><dd><ul class="inline"><li>Docker</li><li>Kubernetes</li><li>Linux</li><li>Nginx</li><li>PM2</li><li>AWS</li></ul></dd></div>
+            <div><dt>Tools &amp; FinTech</dt><dd><ul class="inline"><li>Git</li><li>GitHub Actions</li><li>Postman</li><li>Swagger</li><li>Fireblocks</li><li>Chainalysis</li><li>KYC providers</li></ul></dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
     <!-- ============ EXPERIENCE ============ -->
     <section class="section" id="experience">
-      <div class="container">
-        <p class="eyebrow reveal"><span class="eyebrow-line"></span>My journey</p>
-        <h2 class="title reveal">Work <span class="grad">experience</span></h2>
-        <p class="subtitle reveal">My professional journey</p>
-        <div class="timeline" id="timeline">
-          <div class="t-line" aria-hidden="true"><span></span></div>
-
-          <article class="t-item reveal" style="--c: 99,102,241">
-            <span class="t-dot" aria-hidden="true"><svg class="ic"><use href="#i-briefcase"/></svg></span>
-            <div class="t-card spot">
-              <div class="t-head">
-                <span class="t-logo" aria-hidden="true"><svg class="ic"><use href="#i-code"/></svg></span>
-                <div class="t-title">
-                  <h3>Full Stack Developer</h3>
-                  <p class="t-org">WrathCode Technology Private Limited</p>
-                  <p class="t-meta"><span><svg class="ic"><use href="#i-calendar"/></svg>Jun 2026 – Present</span><span><svg class="ic"><use href="#i-pin"/></svg>Jaipur, Rajasthan</span></p>
-                </div>
-                <span class="t-badge"><span class="live-dot"></span>Current</span>
-              </div>
-              <p class="t-sub"><svg class="ic"><use href="#i-layers"/></svg>Key responsibilities</p>
-              <ul>
-                <li>Developing backend services for AGCX, a regulated crypto exchange, with Node.js, TypeScript, PostgreSQL, Redis, gRPC and microservices.</li>
-                <li>Designed wallet, deposit, withdrawal and transfer workflows with full transaction lifecycle, validation and failure recovery.</li>
+      <div class="container split">
+        <header class="sec-head reveal"><span class="sec-num">04</span><h2 class="title">Experience</h2></header>
+        <ol class="xp sec-body">
+          <li class="reveal">
+            <p class="xp-when">Jun 2026 – now <span class="xp-now"><span class="live-dot" aria-hidden="true"></span>Current</span></p>
+            <div>
+              <h3>Full Stack Developer <span class="at">at WrathCode Technology</span></h3>
+              <p class="xp-where">Jaipur, Rajasthan</p>
+              <ul class="dash">
+                <li>Building backend services for AGCX, a regulated crypto exchange, in Node.js, TypeScript, PostgreSQL, Redis and gRPC.</li>
+                <li>Designed the wallet, deposit, withdrawal and transfer workflows, including the transaction lifecycle, validation and failure recovery.</li>
                 <li>Built fiat-to-crypto and crypto-to-fiat flows with Zand Bank and CryptoSwift.</li>
                 <li>Integrated Fireblocks, Chainalysis, Binance and Didit KYC.</li>
-                <li>Implemented Passkeys, OAuth 2.0/OIDC, Apple sign-in, API keys and RBAC/ABAC/PBAC.</li>
-                <li>gRPC services following DDD and Clean Architecture, deployed with Docker and Kubernetes.</li>
+                <li>Implemented Passkeys, OAuth 2.0 / OIDC, Apple sign-in, API keys and RBAC / ABAC / PBAC.</li>
+                <li>Services follow DDD and Clean Architecture and run on Docker and Kubernetes.</li>
               </ul>
             </div>
-          </article>
-
-          <article class="t-item reveal" style="--c: 16,185,129">
-            <span class="t-dot" aria-hidden="true"><svg class="ic"><use href="#i-briefcase"/></svg></span>
-            <div class="t-card spot">
-              <div class="t-head">
-                <span class="t-logo" aria-hidden="true"><svg class="ic"><use href="#i-box"/></svg></span>
-                <div class="t-title">
-                  <h3>Full Stack Developer</h3>
-                  <p class="t-org">Octodo Solutions</p>
-                  <p class="t-meta"><span><svg class="ic"><use href="#i-calendar"/></svg>Jun 2024 – May 2026</span><span><svg class="ic"><use href="#i-pin"/></svg>Jaipur, Rajasthan</span></p>
-                </div>
-                <span class="t-badge muted">2 years</span>
-              </div>
-              <p class="t-sub"><svg class="ic"><use href="#i-layers"/></svg>Key responsibilities</p>
-              <ul>
+          </li>
+          <li class="reveal">
+            <p class="xp-when">Jun 2024 – May 2026</p>
+            <div>
+              <h3>Full Stack Developer <span class="at">at Octodo Solutions</span></h3>
+              <p class="xp-where">Jaipur, Rajasthan</p>
+              <ul class="dash">
                 <li>Built the complete digital platform for Design2Occupancy: website, CMS, CRM, work orders and payments.</li>
                 <li>Developed 400+ REST APIs and gRPC services across CRM, projects, notifications and reporting.</li>
                 <li>Integrated Tally ERP with automated payment reminders and deadline follow-ups.</li>
-                <li>Integrated Google Drive, HubSpot and Insightly CRM; real-time features with WebSockets.</li>
-                <li>Implemented RBAC/ABAC/PBAC and JWT/OAuth 2.0 authentication.</li>
-                <li>Optimized PostgreSQL and MS SQL queries and indexes, improving performance by ~25%.</li>
+                <li>Integrated Google Drive, HubSpot and Insightly CRM, and added real-time features over WebSockets.</li>
+                <li>Implemented RBAC / ABAC / PBAC with JWT and OAuth 2.0 authentication.</li>
+                <li>Tuned PostgreSQL and MS SQL queries and indexes, improving performance by about 25%.</li>
               </ul>
             </div>
-          </article>
-
-          <article class="t-item reveal" style="--c: 168,85,247">
-            <span class="t-dot" aria-hidden="true"><svg class="ic"><use href="#i-cap"/></svg></span>
-            <div class="t-card spot">
-              <div class="t-head">
-                <span class="t-logo" aria-hidden="true"><svg class="ic"><use href="#i-cap"/></svg></span>
-                <div class="t-title">
-                  <h3>B.Tech, Electrical Engineering</h3>
-                  <p class="t-org">Arya College of Engineering &amp; IT, Jaipur</p>
-                  <p class="t-meta"><span><svg class="ic"><use href="#i-calendar"/></svg>2020 – 2024</span><span><svg class="ic"><use href="#i-award"/></svg>Full Stack Fellowship, Crio.Do</span></p>
-                </div>
-                <span class="t-badge muted">CGPA 9.0</span>
-              </div>
+          </li>
+          <li class="reveal">
+            <p class="xp-when">2020 – 2024</p>
+            <div>
+              <h3>B.Tech, Electrical Engineering <span class="at">at Arya College of Engineering &amp; IT</span></h3>
+              <p class="xp-where">Jaipur · CGPA 9.0 · Full Stack Fellowship at Crio.Do</p>
             </div>
-          </article>
-        </div>
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
     <section class="section" id="contact">
-      <div class="container">
-        <div class="reveal">
-          <h2 class="title">Get in touch</h2>
-          <p class="subtitle">Let's build something great together</p>
-        </div>
-        <div class="contact-grid">
-          <form class="form panel reveal" id="contact-form" novalidate>
-            <div class="field">
-              <label for="c-name">Name</label>
-              <input id="c-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="c-email">Email</label>
-              <input id="c-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="c-msg">Message</label>
-              <textarea id="c-msg" name="message" rows="5" placeholder="Tell me about the role or project" required></textarea>
-            </div>
-            <button class="btn btn-primary btn-block" type="submit">Send message <svg class="ic"><use href="#i-send"/></svg></button>
-            <p class="form-status" id="form-status" role="status"></p>
-          </form>
+      <div class="container split">
+        <header class="sec-head reveal"><span class="sec-num">05</span><h2 class="title">Contact</h2></header>
+        <div class="sec-body">
+          <p class="contact-lead reveal">Hiring for a backend or full stack role? I'd like to hear about it.</p>
+          <div class="email-row reveal">
+            <a class="email" href="mailto:sainirinku1604@gmail.com">sainirinku1604@gmail.com</a>
+            <button class="copy" data-copy="sainirinku1604@gmail.com" aria-label="Copy email address"><svg class="ic"><use href="#i-copy"/></svg><span class="copy-label">Copy</span></button>
+          </div>
+          <p class="muted-note reveal">Or call me on <a href="tel:+919799118495">+91 97991 18495</a>.</p>
 
-          <ul class="info reveal">
-            <li class="info-item spot">
-              <span class="f-ic"><svg class="ic"><use href="#i-mail"/></svg></span>
-              <div><span class="label">Email</span><a href="mailto:sainirinku1604@gmail.com">sainirinku1604@gmail.com</a></div>
-              <button class="copy" data-copy="sainirinku1604@gmail.com" aria-label="Copy email"><svg class="ic"><use href="#i-copy"/></svg></button>
-            </li>
-            <li class="info-item spot">
-              <span class="f-ic"><svg class="ic"><use href="#i-phone"/></svg></span>
-              <div><span class="label">Phone</span><a href="tel:+919799118495">+91-9799118495</a></div>
-              <button class="copy" data-copy="+919799118495" aria-label="Copy phone number"><svg class="ic"><use href="#i-copy"/></svg></button>
-            </li>
-            <li class="info-item spot">
-              <span class="f-ic"><svg class="ic"><use href="#i-pin"/></svg></span>
-              <div><span class="label">Location</span><span>Jaipur, Rajasthan, India</span></div>
-            </li>
-            <li class="info-item spot">
-              <span class="f-ic"><svg class="ic"><use href="#i-github"/></svg></span>
-              <div><span class="label">GitHub</span><a href="https://github.com/MrRinkukumar2004" target="_blank" rel="noopener me">github.com/MrRinkukumar2004</a></div>
-            </li>
-            <li class="info-item spot">
-              <span class="f-ic"><svg class="ic"><use href="#i-linkedin"/></svg></span>
-              <div><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/rinku-kumar-saini" target="_blank" rel="noopener me">linkedin.com/in/rinku-kumar-saini</a></div>
-            </li>
-            <li class="info-item spot">
-              <span class="f-ic"><svg class="ic"><use href="#i-leetcode"/></svg></span>
-              <div><span class="label">LeetCode</span><a href="https://leetcode.com/u/JackSparrow_01/" target="_blank" rel="noopener me">leetcode.com/u/JackSparrow_01</a></div>
-            </li>
-            <li class="info-item spot">
-              <span class="f-ic"><svg class="ic"><use href="#i-medium"/></svg></span>
-              <div><span class="label">Medium</span><a href="https://medium.com/@sainirinku1604" target="_blank" rel="noopener me">medium.com/@sainirinku1604</a></div>
-            </li>
-            <li class="info-item spot">
-              <span class="f-ic"><svg class="ic"><use href="#i-award"/></svg></span>
-              <div><span class="label">Crio.Do Portfolio</span><a href="https://www.crio.do/learn/portfolio/sainirinku1604/" target="_blank" rel="noopener me">crio.do/learn/portfolio/sainirinku1604</a></div>
-            </li>
-          </ul>
+          <div class="contact-grid">
+            <form class="form reveal" id="contact-form" novalidate>
+              <div class="field">
+                <label for="c-name">Name</label>
+                <input id="c-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="c-email">Email</label>
+                <input id="c-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="c-msg">Message</label>
+                <textarea id="c-msg" name="message" rows="5" placeholder="A few lines about the role or project" required></textarea>
+              </div>
+              <div class="form-foot">
+                <button class="btn btn-primary" type="submit">Send message <svg class="ic"><use href="#i-arrow"/></svg></button>
+                <p class="form-status" id="form-status" role="status"></p>
+              </div>
+            </form>
+
+            <div class="elsewhere reveal">
+              <p class="label">Elsewhere</p>
+              <ul>
+                <li><a href="https://github.com/MrRinkukumar2004" target="_blank" rel="noopener me">GitHub <span aria-hidden="true">↗</span></a></li>
+                <li><a href="https://www.linkedin.com/in/rinku-kumar-saini" target="_blank" rel="noopener me">LinkedIn <span aria-hidden="true">↗</span></a></li>
+                <li><a href="https://leetcode.com/u/JackSparrow_01/" target="_blank" rel="noopener me">LeetCode <span aria-hidden="true">↗</span></a></li>
+                <li><a href="https://medium.com/@sainirinku1604" target="_blank" rel="noopener me">Medium <span aria-hidden="true">↗</span></a></li>
+                <li><a href="https://www.crio.do/learn/portfolio/sainirinku1604/" target="_blank" rel="noopener me">Crio.Do portfolio <span aria-hidden="true">↗</span></a></li>
+              </ul>
+              <p class="label">Based in</p>
+              <p>Jaipur, Rajasthan, India</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -540,19 +338,11 @@
 
   <footer class="footer">
     <div class="container footer-row">
-      <p>© <span id="year">2026</span> Rinku Kumar Saini. All rights reserved.</p>
-      <div class="socials">
-        <a href="https://github.com/MrRinkukumar2004" target="_blank" rel="noopener me" aria-label="GitHub"><svg class="ic"><use href="#i-github"/></svg></a>
-        <a href="https://www.linkedin.com/in/rinku-kumar-saini" target="_blank" rel="noopener me" aria-label="LinkedIn"><svg class="ic"><use href="#i-linkedin"/></svg></a>
-        <a href="https://leetcode.com/u/JackSparrow_01/" target="_blank" rel="noopener me" aria-label="LeetCode"><svg class="ic"><use href="#i-leetcode"/></svg></a>
-        <a href="https://medium.com/@sainirinku1604" target="_blank" rel="noopener me" aria-label="Medium"><svg class="ic"><use href="#i-medium"/></svg></a>
-        <a href="https://www.crio.do/learn/portfolio/sainirinku1604/" target="_blank" rel="noopener me" aria-label="Crio.Do portfolio"><svg class="ic"><use href="#i-award"/></svg></a>
-        <a href="mailto:sainirinku1604@gmail.com" aria-label="Email"><svg class="ic"><use href="#i-mail"/></svg></a>
-      </div>
+      <p>© <span id="year">2026</span> Rinku Kumar Saini</p>
+      <p class="muted">Last updated October 2026</p>
+      <a class="link-plain" href="#home">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
-
-  <a class="to-top" href="#home" aria-label="Back to top"><svg class="ic"><use href="#i-up"/></svg></a>
 
   <script src="js/main.js" defer></script>
 </body>
