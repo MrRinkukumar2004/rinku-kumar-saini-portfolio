@@ -69,6 +69,7 @@
       <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
       <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
       <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
       <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
       <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
       <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
@@ -395,24 +396,25 @@
     <!-- ============ EXPERIENCE ============ -->
     <section class="section" id="experience">
       <div class="container">
-        <div class="reveal">
-          <h2 class="title">Work experience</h2>
-          <p class="subtitle">My professional journey</p>
-        </div>
+        <p class="eyebrow reveal"><span class="eyebrow-line"></span>My journey</p>
+        <h2 class="title reveal">Work <span class="grad">experience</span></h2>
+        <p class="subtitle reveal">My professional journey</p>
         <div class="timeline" id="timeline">
           <div class="t-line" aria-hidden="true"><span></span></div>
 
-          <article class="t-item reveal">
+          <article class="t-item reveal" style="--c: 99,102,241">
             <span class="t-dot" aria-hidden="true"><svg class="ic"><use href="#i-briefcase"/></svg></span>
             <div class="t-card spot">
               <div class="t-head">
-                <div>
+                <span class="t-logo" aria-hidden="true"><svg class="ic"><use href="#i-code"/></svg></span>
+                <div class="t-title">
                   <h3>Full Stack Developer</h3>
                   <p class="t-org">WrathCode Technology Private Limited</p>
+                  <p class="t-meta"><span><svg class="ic"><use href="#i-calendar"/></svg>Jun 2026 – Present</span><span><svg class="ic"><use href="#i-pin"/></svg>Jaipur, Rajasthan</span></p>
                 </div>
-                <span class="t-badge">Current</span>
+                <span class="t-badge"><span class="live-dot"></span>Current</span>
               </div>
-              <p class="t-meta">Jun 2026 – Present · Jaipur, Rajasthan</p>
+              <p class="t-sub"><svg class="ic"><use href="#i-layers"/></svg>Key responsibilities</p>
               <ul>
                 <li>Developing backend services for AGCX, a regulated crypto exchange, with Node.js, TypeScript, PostgreSQL, Redis, gRPC and microservices.</li>
                 <li>Designed wallet, deposit, withdrawal and transfer workflows with full transaction lifecycle, validation and failure recovery.</li>
@@ -424,16 +426,19 @@
             </div>
           </article>
 
-          <article class="t-item reveal">
+          <article class="t-item reveal" style="--c: 16,185,129">
             <span class="t-dot" aria-hidden="true"><svg class="ic"><use href="#i-briefcase"/></svg></span>
             <div class="t-card spot">
               <div class="t-head">
-                <div>
+                <span class="t-logo" aria-hidden="true"><svg class="ic"><use href="#i-box"/></svg></span>
+                <div class="t-title">
                   <h3>Full Stack Developer</h3>
                   <p class="t-org">Octodo Solutions</p>
+                  <p class="t-meta"><span><svg class="ic"><use href="#i-calendar"/></svg>Jun 2024 – May 2026</span><span><svg class="ic"><use href="#i-pin"/></svg>Jaipur, Rajasthan</span></p>
                 </div>
+                <span class="t-badge muted">2 years</span>
               </div>
-              <p class="t-meta">Jun 2024 – May 2026 · Jaipur, Rajasthan</p>
+              <p class="t-sub"><svg class="ic"><use href="#i-layers"/></svg>Key responsibilities</p>
               <ul>
                 <li>Built the complete digital platform for Design2Occupancy: website, CMS, CRM, work orders and payments.</li>
                 <li>Developed 400+ REST APIs and gRPC services across CRM, projects, notifications and reporting.</li>
@@ -445,17 +450,18 @@
             </div>
           </article>
 
-          <article class="t-item reveal">
-            <span class="t-dot" aria-hidden="true"><svg class="ic"><use href="#i-calendar"/></svg></span>
+          <article class="t-item reveal" style="--c: 168,85,247">
+            <span class="t-dot" aria-hidden="true"><svg class="ic"><use href="#i-cap"/></svg></span>
             <div class="t-card spot">
               <div class="t-head">
-                <div>
+                <span class="t-logo" aria-hidden="true"><svg class="ic"><use href="#i-cap"/></svg></span>
+                <div class="t-title">
                   <h3>B.Tech, Electrical Engineering</h3>
                   <p class="t-org">Arya College of Engineering &amp; IT, Jaipur</p>
+                  <p class="t-meta"><span><svg class="ic"><use href="#i-calendar"/></svg>2020 – 2024</span><span><svg class="ic"><use href="#i-award"/></svg>Full Stack Fellowship, Crio.Do</span></p>
                 </div>
                 <span class="t-badge muted">CGPA 9.0</span>
               </div>
-              <p class="t-meta">2020 – 2024 · Full Stack Fellowship, Crio.do</p>
             </div>
           </article>
         </div>

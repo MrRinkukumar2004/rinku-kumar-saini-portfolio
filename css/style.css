@@ -444,24 +444,58 @@ button { font: inherit; color: inherit; }
 .timeline { position: relative; padding-left: 64px; }
 .t-line { position: absolute; left: 21px; top: 8px; bottom: 8px; width: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
 .t-line span { display: block; width: 100%; height: 0; background: linear-gradient(var(--accent-2), var(--accent)); box-shadow: 0 0 12px var(--accent); }
-.t-item { position: relative; margin-bottom: 28px; }
+.t-item { --c: 47,123,255; position: relative; margin-bottom: 24px; }
 .t-item:last-child { margin-bottom: 0; }
 .t-dot {
-  position: absolute; left: -64px; top: 18px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--bg); border: 2px solid var(--accent); color: var(--accent-2); box-shadow: 0 0 0 6px rgba(47,123,255,0.1);
+  position: absolute; left: -64px; top: 28px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--bg); border: 2px solid var(--accent); color: var(--accent-2);
+  box-shadow: 0 0 0 6px rgba(47,123,255,0.1), 0 0 18px rgba(47,123,255,0.45);
 }
+.js .t-item.in .t-dot { animation: dot-glow 3s ease-in-out infinite; }
+@keyframes dot-glow { 50% { box-shadow: 0 0 0 9px rgba(47,123,255,0.06), 0 0 26px rgba(47,123,255,0.65); } }
 .t-dot .ic { width: 18px; height: 18px; }
-.t-card { padding: 24px 26px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); transition: border-color .3s; }
-.t-card:hover { border-color: rgba(90,162,255,0.5); }
-.t-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-.t-head h3 { font-size: 1.15rem; }
-.t-org { color: var(--accent-2); font-weight: 600; margin: 4px 0 0; }
-.t-badge { font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(52,211,153,0.12); color: var(--ok); border: 1px solid rgba(52,211,153,0.3); white-space: nowrap; }
-.t-badge.muted { background: rgba(47,123,255,0.12); color: var(--accent-2); border-color: rgba(47,123,255,0.3); }
-.t-meta { color: var(--muted); font-size: 0.88rem; margin: 6px 0 14px; }
-.t-card ul li { position: relative; padding-left: 18px; color: var(--muted); font-size: 0.93rem; margin-bottom: 7px; }
-.t-card ul li::before { content: ""; position: absolute; left: 2px; top: 0.65em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); }
-.t-card ul { margin-bottom: 0; }
+.t-card {
+  padding: 22px 24px; border-radius: 20px;
+  background: radial-gradient(500px 200px at 0% 0%, rgba(var(--c),0.1), transparent 70%), linear-gradient(180deg, rgba(18,28,61,0.9), rgba(10,16,36,0.95));
+  border: 1px solid rgba(47,123,255,0.28);
+  transition: border-color .35s, box-shadow .35s, transform .35s;
+}
+.t-card:hover { border-color: rgba(var(--c),0.7); box-shadow: 0 26px 50px -28px rgba(var(--c),0.6); transform: translateX(4px); }
+.t-card.spot::before { background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(var(--c),0.12), transparent 60%); }
+.t-head { display: flex; align-items: flex-start; gap: 18px; }
+.t-title { flex: 1; min-width: 0; }
+.t-head h3 { font-size: 1.2rem; }
+.t-logo {
+  width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; flex: none; color: #fff;
+  background: linear-gradient(145deg, rgba(var(--c),1), rgba(var(--c),0.6));
+  box-shadow: 0 10px 24px -8px rgba(var(--c),0.7), inset 0 1px 0 rgba(255,255,255,0.25);
+  transition: transform .4s cubic-bezier(.3,.8,.3,1);
+}
+.t-logo .ic { width: 26px; height: 26px; }
+.t-card:hover .t-logo { transform: rotate(-8deg) scale(1.06); }
+.t-org { color: var(--accent-2); font-weight: 600; margin: 3px 0 0; }
+.t-badge {
+  display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 700; padding: 6px 14px; border-radius: 999px;
+  background: rgba(52,211,153,0.12); color: var(--ok); border: 1px solid rgba(52,211,153,0.35); white-space: nowrap;
+}
+.t-badge .live-dot { width: 7px; height: 7px; }
+.t-badge.muted { background: rgba(var(--c),0.14); color: rgb(var(--c)); border-color: rgba(var(--c),0.4); filter: brightness(1.25); }
+.t-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 0.86rem; margin: 8px 0 0; }
+.t-meta span { display: inline-flex; align-items: center; gap: 7px; }
+.t-meta span + span { padding-left: 18px; border-left: 1px solid var(--line); }
+.t-meta .ic { width: 15px; height: 15px; color: var(--accent-2); }
+.t-sub {
+  display: flex; align-items: center; gap: 9px; margin: 18px 0 12px; padding-top: 16px; border-top: 1px solid var(--line);
+  color: var(--accent-2); font-size: 0.92rem; font-weight: 700;
+}
+.t-sub .ic { width: 18px; height: 18px; }
+.t-card ul { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 36px; margin-bottom: 0; }
+.t-card ul li { position: relative; padding-left: 20px; color: var(--muted); font-size: 0.9rem; line-height: 1.55; transition: color .2s; }
+.t-card ul li:hover { color: var(--text); }
+.t-card ul li::before { content: ""; position: absolute; left: 2px; top: 0.6em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+/* Responsibilities fade in one after another once the card is revealed */
+.js .t-item:not(.in) .t-card li { opacity: 0; }
+.js .t-item.in .t-card li { animation: chip-in .45s ease backwards; animation-delay: calc(.3s + var(--i, 0) * .07s); }
 
 /* Contact */
 .contact-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: start; }
@@ -546,6 +580,7 @@ button { font: inherit; color: inherit; }
   .hero-visual { width: min(340px, 82%); grid-row: 1; }
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .head-row { flex-wrap: wrap; align-items: flex-start; }
+  .t-card ul { grid-template-columns: 1fr; }
   .nav-cta { display: none; }
   .menu-btn { display: grid; }
   .nav-links {
@@ -580,9 +615,13 @@ button { font: inherit; color: inherit; }
   .f1 { left: -4%; top: 8%; } .f2 { right: -6%; top: 62%; } .f3 { left: -6%; bottom: 28%; } .f4 { bottom: 2%; }
   .timeline { padding-left: 0; }
   .t-line { display: none; }
-  .t-dot { position: static; width: 38px; height: 38px; margin-bottom: 12px; }
+  .t-dot { display: none; }
   .t-card { padding: 20px; }
-  .t-head { flex-wrap: wrap; }
+  .t-card:hover { transform: none; }
+  .t-head { flex-wrap: wrap; gap: 14px; }
+  .t-logo { width: 46px; height: 46px; }
+  .t-title { flex-basis: calc(100% - 60px); }
+  .t-card ul { grid-template-columns: 1fr; }
   .form { padding: 22px; }
   .actions .btn { flex: 1 1 auto; }
 }
