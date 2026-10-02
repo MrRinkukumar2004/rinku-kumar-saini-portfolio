@@ -31,8 +31,8 @@
   --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
 
   /* Shape + layout */
-  --radius: 14px;
-  --radius-sm: 10px;
+  --radius: 8px;
+  --radius-sm: 6px;
   --container: 1120px;
   --header-h: 64px;
   --ease: cubic-bezier(.2, .7, .2, 1);
@@ -183,7 +183,7 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .portrait:hover .portrait-frame img { filter: saturate(1) contrast(1.02); transform: scale(1.02); }
 .portrait-tag {
   position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 1;
-  display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 14px; border-radius: 10px;
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 14px; border-radius: 6px;
   background: rgba(13, 14, 17, 0.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   color: #fff; font-size: 0.86rem; border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -301,7 +301,7 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 }
 .email:hover { color: var(--accent); }
 .copy {
-  display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: 7px;
+  display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: 5px;
   border: 1px solid var(--line); background: transparent; color: var(--muted); font-size: 0.8rem; cursor: pointer; transition: color .2s, border-color .2s;
 }
 .copy:hover { color: var(--text); border-color: var(--line-strong); }
