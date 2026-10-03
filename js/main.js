@@ -105,41 +105,50 @@
   }));
 
   /* ---------- Contact form ---------- */
-  // Opens the visitor's mail app; add data-endpoint="https://formspree.io/f/…" to the form to send directly
+  // Posts to /api/contact (Vercel function that emails me); falls back to the visitor's mail app if that isn't available
   const form = $("#contact-form");
   const status = $("#form-status");
   if (form) {
+    const controls = $$(".field input, .field textarea", form);
+    const submitBtn = $('button[type="submit"]', form);
+    const say = (cls, msg) => { status.className = "form-status" + (cls ? " " + cls : ""); status.textContent = msg; };
+    const openMailApp = (data) => {
+      const subject = encodeURIComponent(`${data.topic}: message from ${data.name}`);
+      const body = encodeURIComponent(data.message + "\n\n" + data.name + "\n" + data.email);
+      location.href = `mailto:sainirinku1604@gmail.com?subject=${subject}&body=${body}`;
+      say("ok", "Your email app should open with the message ready to send.");
+    };
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const fields = $$("input, textarea", form);
       let ok = true;
-      fields.forEach((f) => {
+      controls.forEach((f) => {
         const valid = f.value.trim() && (f.type !== "email" || /^\S+@\S+\.\S+$/.test(f.value.trim()));
         f.closest(".field").classList.toggle("invalid", !valid);
         if (!valid) ok = false;
       });
-      if (!ok) { status.className = "form-status err"; status.textContent = "Add your name, a valid email and a message."; return; }
+      if (!ok) return say("err", "Add your name, a valid email and a message.");
 
       const data = Object.fromEntries(new FormData(form));
       const endpoint = form.dataset.endpoint;
-      if (endpoint) {
-        status.className = "form-status"; status.textContent = "Sending…";
-        try {
-          const res = await fetch(endpoint, { method: "POST", headers: { Accept: "application/json", "Content-Type": "application/json" }, body: JSON.stringify(data) });
-          if (!res.ok) throw new Error();
-          form.reset(); status.className = "form-status ok"; status.textContent = "Sent. Thanks, I'll get back to you soon.";
-        } catch {
-          status.className = "form-status err"; status.textContent = "Couldn't send right now. Email me at sainirinku1604@gmail.com.";
-        }
-        return;
+      // The API only exists on the deployed site, not when the page is opened as a local file
+      if (!endpoint || location.protocol === "file:") return openMailApp(data);
+
+      submitBtn.disabled = true;
+      say("", "Sending…");
+      try {
+        const res = await fetch(endpoint, { method: "POST", headers: { Accept: "application/json", "Content-Type": "application/json" }, body: JSON.stringify(data) });
+        const out = await res.json().catch(() => ({}));
+        if (!res.ok || !out.ok) throw new Error(out.error);
+        form.reset();
+        say("ok", "Thanks, your message is on its way. I'll reply soon.");
+      } catch {
+        say("err", "Couldn't send right now. Please email me at sainirinku1604@gmail.com.");
+      } finally {
+        submitBtn.disabled = false;
       }
-      const subject = encodeURIComponent(`Portfolio enquiry from ${data.name}`);
-      const body = encodeURIComponent(`${data.message}\n\n${data.name}\n${data.email}`);
-      location.href = `mailto:sainirinku1604@gmail.com?subject=${subject}&body=${body}`;
-      status.className = "form-status ok";
-      status.textContent = "Your email app should open with the message ready to send.";
     });
-    $$("input, textarea", form).forEach((f) => f.addEventListener("input", () => f.closest(".field").classList.remove("invalid")));
+    controls.forEach((f) => f.addEventListener("input", () => f.closest(".field").classList.remove("invalid")));
   }
 
   /* ---------- Footer year ---------- */

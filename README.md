@@ -13,6 +13,7 @@ css/style.css         Site styles; colours and fonts are the variables at the to
 css/project.css       Extra styles for the case-study pages
 js/theme.js           Light / dark theme (loaded in <head>)
 js/main.js            Home page interactions: menu, share menu, reveal, copy, contact form
+api/contact.js        Vercel function that emails contact form messages to you
 js/project.js         Case-study pages: contents highlight, share, screenshot lightbox
 images/               Your photo and project screenshots
 resume.pdf            Used by every "Résumé" / "Download résumé" link
@@ -34,12 +35,21 @@ Compress images at squoosh.app or tinypng.com before uploading (aim for under 30
 
 ## Contact form
 
-By default, "Send message" opens the visitor's email app with the message filled in.
-To receive messages directly in your inbox instead:
+Messages from the form are emailed to you by a Vercel serverless function, `api/contact.js`, using [Resend](https://resend.com) (free: 3,000 emails/month).
+Each email's subject shows the topic ("Job opportunity", "Freelance project" or "Something else") and the sender's name, and pressing Reply answers the sender directly.
 
-1. Create a free form at https://formspree.io (50 messages/month free).
-2. Copy your form URL, for example `https://formspree.io/f/abcdwxyz`.
-3. In `index.html`, add `data-endpoint="https://formspree.io/f/abcdwxyz"` to the `<form id="contact-form">` tag.
+One-time setup:
+
+1. Sign up at https://resend.com with **sainirinku1604@gmail.com** and create an API key (API Keys → Create).
+2. In Vercel: your project → Settings → Environment Variables, add:
+   - `RESEND_API_KEY` = the key from step 1
+   - `CONTACT_TO_EMAIL` = `sainirinku1604@gmail.com`
+3. Redeploy (Deployments → ⋯ → Redeploy) so the variables take effect.
+4. Send a test message from the live site. If nothing arrives, check your spam folder and the function logs in Vercel (Deployments → Functions).
+
+Resend's shared sender (`onboarding@resend.dev`) can only deliver to the email you signed up with. To send from your own address, verify a domain in Resend and add `CONTACT_FROM_EMAIL`, for example `Portfolio <hello@yourdomain.com>`.
+
+When the page is opened as a local file, the form falls back to opening the visitor's email app.
 
 ## Deploying on Vercel
 
