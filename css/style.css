@@ -218,9 +218,7 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
     radial-gradient(520px 380px at 74% 42%, var(--glow-a), transparent 70%),
     radial-gradient(420px 320px at 8% 88%, var(--glow-b), transparent 70%),
     radial-gradient(300px 220px at 96% 8%, var(--gold-glow), transparent 70%);
-  animation: glow-drift 16s ease-in-out infinite alternate;
 }
-@keyframes glow-drift { to { transform: translate(-24px, 16px) scale(1.04); } }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; }
 .kicker {
   display: inline-flex; align-items: center; gap: 10px; margin-bottom: 26px; padding: 6px 12px 6px 10px; border-radius: 999px;
@@ -359,22 +357,13 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 /* ---------- Sections ---------- */
 .section { position: relative; isolation: isolate; padding-block: 112px; border-top: 1px solid var(--line); }
 .section::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-/* Pattern effects shared by the hero and every section (layers injected by main.js):
-   .fx-spot reveals the section's pattern in gold around the cursor; .fx-flash sweeps a band of light across it */
-.hero { --pat-img: linear-gradient(var(--gold-line) 1px, transparent 1px), linear-gradient(90deg, var(--gold-line) 1px, transparent 1px); --pat-size: 56px 56px; --pat-pos: center top; --pat-mask: radial-gradient(ellipse 75% 70% at 60% 40%, #000 25%, transparent 78%); }
-.section { --pat-img: linear-gradient(var(--gold-line) 1px, transparent 1px), linear-gradient(90deg, var(--gold-line) 1px, transparent 1px); --pat-size: 48px 48px; --pat-pos: center top; --pat-mask: linear-gradient(90deg, #000, transparent 24%, transparent 76%, #000); }
-
-.fx { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
-.fx-spot, .fx-flash { position: absolute; inset: 0; background-image: var(--pat-img); background-size: var(--pat-size); background-position: var(--pat-pos, 0 0); }
-.fx-spot {
-  opacity: 0; transition: opacity .4s;
-  -webkit-mask-image: radial-gradient(210px circle at var(--mx, -999px) var(--my, -999px), #000, transparent 72%);
-  mask-image: radial-gradient(210px circle at var(--mx, -999px) var(--my, -999px), #000, transparent 72%);
-}
-.fx-spot::after { content: ""; position: absolute; inset: 0; background: radial-gradient(240px circle at var(--mx, -999px) var(--my, -999px), var(--gold-glow), transparent 70%); }
-.spot-on > .fx .fx-spot { opacity: 1; }
+/* Automatic diagonal light sweep over the grid (layer injected by main.js); no mouse effect */
+.hero { --pat-img: linear-gradient(var(--gold-line) 1px, transparent 1px), linear-gradient(90deg, var(--gold-line) 1px, transparent 1px); --pat-size: 56px 56px; --pat-mask: radial-gradient(ellipse 75% 70% at 60% 40%, #000 25%, transparent 78%); }
+.section { --pat-img: linear-gradient(var(--gold-line) 1px, transparent 1px), linear-gradient(90deg, var(--gold-line) 1px, transparent 1px); --pat-size: 48px 48px; --pat-mask: linear-gradient(90deg, #000, transparent 24%, transparent 76%, #000); }
 .fx-flash {
-  opacity: 1; filter: brightness(1.7) saturate(1.25);
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: var(--pat-img); background-size: var(--pat-size); background-position: center top;
+  filter: brightness(1.7) saturate(1.25);
   -webkit-mask-image: var(--pat-mask), linear-gradient(135deg, transparent 44%, #000 49%, #000 51%, transparent 56%);
   mask-image: var(--pat-mask), linear-gradient(135deg, transparent 44%, #000 49%, #000 51%, transparent 56%);
   -webkit-mask-size: 100% 100%, 300% 300%; mask-size: 100% 100%, 300% 300%;
@@ -386,6 +375,8 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 @keyframes flash-sweep {
   0% { -webkit-mask-position: 0 0, 90% 90%; mask-position: 0 0, 90% 90%; }
   38%, 100% { -webkit-mask-position: 0 0, 10% 10%; mask-position: 0 0, 10% 10%; }
+}
+
 }
 
 /* Static background: the same fine grid on both side edges of every section, with gold glows on each side */

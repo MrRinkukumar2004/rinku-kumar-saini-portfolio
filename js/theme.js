@@ -1,4 +1,4 @@
-// Light/dark theme: light by default, loaded in <head> so a saved choice applies before first paint
+// Light/dark theme: dark by default, loaded in <head> so a saved choice applies before first paint
 (() => {
   const root = document.documentElement;
   const KEY = "theme";
@@ -18,7 +18,7 @@
     root.dispatchEvent(new CustomEvent("themechange", { detail: theme }));
   }
 
-  apply(saved() === "dark" ? "dark" : "light");
+  apply(saved() === "light" ? "light" : "dark");
 
   document.addEventListener("DOMContentLoaded", () => {
     apply(root.getAttribute("data-theme")); // refresh button labels + meta now that they exist

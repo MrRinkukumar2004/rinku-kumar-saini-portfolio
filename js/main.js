@@ -294,29 +294,14 @@
     }
   }
 
-  /* ---------- Pattern effects: cursor spotlight + automatic light sweep, per section ---------- */
-  const finePointer = matchMedia("(pointer: fine)").matches;
+  /* ---------- Automatic diagonal light sweep over each section's grid ---------- */
   $$(".hero, .section").forEach((el, i) => {
-    const fx = document.createElement("div");
-    fx.className = "fx"; fx.setAttribute("aria-hidden", "true");
-    fx.innerHTML = '<span class="fx-spot"></span><span class="fx-flash"></span>';
-    const bg = $(".hero-bg", el);
-    bg ? bg.after(fx) : el.prepend(fx);
+    const flash = document.createElement("span");
+    flash.className = "fx-flash"; flash.setAttribute("aria-hidden", "true");
     // Stagger the sweeps so sections don't all flash at the same moment
-    fx.style.setProperty("--flash-delay", `${(i * 1.3) % 8}s`);
-
-    if (!finePointer || reduceMotion) return;
-    let raf = 0;
-    el.addEventListener("pointermove", (e) => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const r = el.getBoundingClientRect();
-        el.style.setProperty("--mx", `${e.clientX - r.left}px`);
-        el.style.setProperty("--my", `${e.clientY - r.top}px`);
-      });
-    });
-    el.addEventListener("pointerenter", () => el.classList.add("spot-on"));
-    el.addEventListener("pointerleave", () => el.classList.remove("spot-on"));
+    flash.style.setProperty("--flash-delay", `${(i * 1.3) % 8}s`);
+    const bg = $(".hero-bg", el);
+    bg ? bg.after(flash) : el.prepend(flash);
   });
 
   /* ---------- Footer year ---------- */
