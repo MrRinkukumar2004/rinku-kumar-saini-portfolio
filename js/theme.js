@@ -1,8 +1,7 @@
-// Light/dark theme: loaded in <head> so the saved choice (or system setting) applies before first paint
+// Light/dark theme: light by default, loaded in <head> so a saved choice applies before first paint
 (() => {
   const root = document.documentElement;
   const KEY = "theme";
-  const media = window.matchMedia("(prefers-color-scheme: light)");
 
   const saved = () => { try { return localStorage.getItem(KEY); } catch { return null; } };
   const store = (t) => { try { localStorage.setItem(KEY, t); } catch { /* private mode */ } };
@@ -19,10 +18,7 @@
     root.dispatchEvent(new CustomEvent("themechange", { detail: theme }));
   }
 
-  apply(saved() || (media.matches ? "light" : "dark"));
-
-  // Follow the system setting until the visitor picks a theme themselves
-  media.addEventListener?.("change", (e) => { if (!saved()) apply(e.matches ? "light" : "dark"); });
+  apply(saved() === "dark" ? "dark" : "light");
 
   document.addEventListener("DOMContentLoaded", () => {
     apply(root.getAttribute("data-theme")); // refresh button labels + meta now that they exist

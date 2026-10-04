@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -9,7 +9,7 @@
   <meta name="author" content="Rinku Kumar Saini">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://rinku-kumar-saini-portfolio.vercel.app/">
-  <meta name="theme-color" content="#0D0E11">
+  <meta name="theme-color" content="#FAFAF8">
 
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Rinku Kumar Saini | Full Stack Developer">
@@ -24,11 +24,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=10">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=16">
 
   <script>document.documentElement.classList.add("js");</script>
-  <script src="js/theme.js?v=10"></script>
+  <script src="js/theme.js?v=16"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,7 +36,6 @@
     "name": "Rinku Kumar Saini",
     "jobTitle": "Full Stack Developer",
     "url": "https://rinku-kumar-saini-portfolio.vercel.app/",
-    "image": "https://rinku-kumar-saini-portfolio.vercel.app/images/profile.jpg",
     "email": "mailto:sainirinku1604@gmail.com",
     "address": { "@type": "PostalAddress", "addressLocality": "Jaipur", "addressRegion": "Rajasthan", "addressCountry": "IN" },
     "worksFor": { "@type": "Organization", "name": "WrathCode Technology Private Limited" },
@@ -128,35 +127,150 @@
   <main id="main">
     <!-- ============ HERO ============ -->
     <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-text">
-            <p class="kicker reveal"><span class="live-dot" aria-hidden="true"></span>Open to roles and freelance projects · Jaipur, India</p>
-            <h1 class="hero-title reveal">Rinku Kumar Saini builds backend systems for products that <em>move real money</em>.</h1>
-            <p class="intro reveal">Full stack developer, mostly backend. I work in Node.js, TypeScript and PostgreSQL, and right now I'm on the wallets, transactions and security layer of a regulated crypto exchange in the UAE.</p>
-            <div class="actions reveal">
-              <a class="btn btn-primary" href="#work">See selected work <svg class="ic"><use href="#i-arrow"/></svg></a>
-              <a class="link-arrow" href="resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
-            </div>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="kicker reveal"><span class="live-dot" aria-hidden="true"></span>Full Stack Developer · Node.js &amp; TypeScript · Jaipur, India</p>
+          <h1 class="hero-title reveal">
+            <span class="hero-name">Rinku Kumar Saini</span>
+            <span class="hero-sub"><span data-from="2024-06" data-format="years">2+ years</span> of experience in <span class="hero-blue">building scalable systems</span> that move <span class="script">real money<svg class="scribble" viewBox="0 0 220 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C 50 4, 120 3, 217 9 M40 15 C 90 10, 150 10, 200 13"/></svg></span>.</span>
+          </h1>
+          <p class="intro reveal">I build secure, high-performance web applications and fintech systems with Node.js, TypeScript, React and PostgreSQL, with a focus on clean architecture, performance and real-world impact.</p>
+          <div class="actions reveal">
+            <a class="btn btn-primary" href="#work">View my work <svg class="ic"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-outline" href="resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
           </div>
-          <figure class="portrait reveal">
-            <div class="portrait-media">
-            <div class="portrait-frame">
-              <img src="images/profile.jpg" alt="Portrait of Rinku Kumar Saini" width="640" height="798" onerror="this.parentElement.classList.add('no-img');this.remove()">
-              <span class="photo-fallback" aria-hidden="true">RKS</span>
-              <span class="portrait-tag" aria-hidden="true"><strong>Rinku Kumar Saini</strong><span>Jaipur, IN</span></span>
-            </div>
-            </div>
-            <figcaption><span>Now</span>At WrathCode Technology</figcaption>
-          </figure>
+          <ul class="hero-stats reveal">
+            <li><svg class="ic"><use href="#i-code"/></svg><strong><span class="count" data-from="2024-06" data-format="num">2</span>+</strong><span>Years experience</span></li>
+            <li><svg class="ic"><use href="#i-network"/></svg><strong><span class="count" data-to="400">400</span>+</strong><span>APIs shipped</span></li>
+            <li><svg class="ic"><use href="#i-wallet"/></svg><strong><span class="count" data-to="6">6</span></strong><span>FinTech integrations</span></li>
+            <li><svg class="ic"><use href="#i-shield"/></svg><strong><span class="count" data-to="1">1</span></strong><span>Crypto exchange live</span></li>
+          </ul>
         </div>
 
-        <dl class="facts-row reveal">
-          <div><dt>2+ years</dt><dd>building production systems</dd></div>
-          <div><dt>400+</dt><dd>REST and gRPC APIs shipped</dd></div>
-          <div><dt>6</dt><dd>payment and compliance integrations</dd></div>
-          <div><dt>~25%</dt><dd>faster queries after index tuning</dd></div>
-        </dl>
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="arch">
+            <div class="arch-bar">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="arch-title"><b>POST</b> /v1/orders</span>
+              <span class="arch-status" id="arch-status">201 Created</span>
+            </div>
+            <svg class="arch-svg" viewBox="0 0 560 290" role="img" aria-label="Order flow: client to API gateway, then auth, KYC, wallet, trading engine and ledger services; the ledger publishes an order.filled event to Kafka, consumed by email, notifications and audit log">
+              <g>
+                <path id="e-client" class="edge" d="M90 150 H124"/>
+                <path id="e-auth" class="edge" d="M216 150 C 238 150, 234 29.0, 254 29.0"/>
+                <path id="e-kyc" class="edge" d="M216 150 C 238 150, 234 87.0, 254 87.0"/>
+                <path id="e-wallet" class="edge" d="M216 150 C 238 150, 234 145.0, 254 145.0"/>
+                <path id="e-trading" class="edge" d="M216 150 C 238 150, 234 203.0, 254 203.0"/>
+                <path id="e-ledger" class="edge" d="M216 150 C 238 150, 234 261.0, 254 261.0"/>
+                <path id="e-pub" class="edge async" d="M376 261.0 H404"/>
+                <path id="e-pub2" class="edge async" d="M376 203.0 H404"/>
+                <path id="e-email" class="edge async" d="M432 75.0 H458"/>
+                <path id="e-notify" class="edge async" d="M432 150.0 H458"/>
+                <path id="e-audit" class="edge async" d="M432 225.0 H458"/>
+              </g>
+              <text class="edge-label" x="107" y="142" text-anchor="middle">HTTPS</text>
+              <text class="edge-label" x="236" y="288" text-anchor="middle">gRPC</text>
+              <text class="edge-label" x="445" y="288" text-anchor="middle">events</text>
+              <g class="node" id="n-client">
+                <rect x="6" y="125" width="84" height="50" rx="6"/>
+                <text class="nt" x="48" y="147" text-anchor="middle">Client</text>
+                <text class="ns" x="48" y="161" text-anchor="middle">Web · Mobile</text>
+              </g>
+              <g class="node gw" id="n-gateway">
+                <rect x="124" y="112" width="92" height="76" rx="6"/>
+                <text class="nt" x="170" y="146" text-anchor="middle">API Gateway</text>
+                <text class="ns" x="170" y="160" text-anchor="middle">Auth · Rate limit</text>
+              </g>
+              <g class="node svc" id="n-auth">
+                <rect x="254" y="12" width="122" height="34" rx="6"/>
+                <text class="nt" x="263" y="27">Auth service</text>
+                <text class="ns" x="263" y="39">JWT · Passkeys</text>
+                <path class="tick" d="M361 25 l3.5 3.5 l6 -7"/>
+              </g>
+              <g class="node svc" id="n-kyc">
+                <rect x="254" y="70" width="122" height="34" rx="6"/>
+                <text class="nt" x="263" y="85">KYC service</text>
+                <text class="ns" x="263" y="97">Didit · Chainalysis</text>
+                <path class="tick" d="M361 83 l3.5 3.5 l6 -7"/>
+              </g>
+              <g class="node svc" id="n-wallet">
+                <rect x="254" y="128" width="122" height="34" rx="6"/>
+                <text class="nt" x="263" y="143">Wallet service</text>
+                <text class="ns" x="263" y="155">Fireblocks</text>
+                <path class="tick" d="M361 141 l3.5 3.5 l6 -7"/>
+              </g>
+              <g class="node svc" id="n-trading">
+                <rect x="254" y="186" width="122" height="34" rx="6"/>
+                <text class="nt" x="263" y="201">Trading engine</text>
+                <text class="ns" x="263" y="213">Order matching</text>
+                <path class="tick" d="M361 199 l3.5 3.5 l6 -7"/>
+              </g>
+              <g class="node svc" id="n-ledger">
+                <rect x="254" y="244" width="122" height="34" rx="6"/>
+                <text class="nt" x="263" y="259">Ledger service</text>
+                <text class="ns" x="263" y="271">PostgreSQL</text>
+                <path class="tick" d="M361 257 l3.5 3.5 l6 -7"/>
+              </g>
+              <g class="node bus" id="n-kafka">
+                <rect x="404" y="12" width="28" height="266" rx="6"/>
+                <text class="nt bus-label" transform="translate(422.0 145) rotate(-90)" text-anchor="middle">Kafka</text>
+              </g>
+              <g class="node con" id="n-email">
+                <rect x="458" y="58" width="96" height="34" rx="6"/>
+                <text class="nt" x="467" y="73">Email service</text>
+                <text class="ns" x="467" y="85">Order receipts</text>
+                <path class="tick" d="M539 71 l3.5 3.5 l6 -7"/>
+              </g>
+              <g class="node con" id="n-notify">
+                <rect x="458" y="133" width="96" height="34" rx="6"/>
+                <text class="nt" x="467" y="148">Notifications</text>
+                <text class="ns" x="467" y="160">Push · WebSocket</text>
+                <path class="tick" d="M539 146 l3.5 3.5 l6 -7"/>
+              </g>
+              <g class="node con" id="n-audit">
+                <rect x="458" y="208" width="96" height="34" rx="6"/>
+                <text class="nt" x="467" y="223">Audit log</text>
+                <text class="ns" x="467" y="235">Event store</text>
+                <path class="tick" d="M539 221 l3.5 3.5 l6 -7"/>
+              </g>
+              <g id="pkts"></g>
+            </svg>
+            <div class="arch-io">
+              <div class="io io-req">
+                <p class="io-label">Request</p>
+<pre>{
+  <span class="c-f">"pair"</span>: <span class="c-t">"BTC/AED"</span>,
+  <span class="c-f">"side"</span>: <span class="c-t">"buy"</span>,
+  <span class="c-f">"type"</span>: <span class="c-t">"market"</span>,
+  <span class="c-f">"amount"</span>: <span class="c-t">"0.05"</span>
+}</pre>
+              </div>
+              <div class="io io-res">
+                <p class="io-label">Response <span class="io-code">201</span></p>
+<pre>{
+  <span class="c-f">"orderId"</span>: <span class="c-t">"ord_7f3a"</span>,
+  <span class="c-f">"status"</span>: <span class="c-t">"filled"</span>,
+  <span class="c-f">"filled"</span>: <span class="c-t">"0.05"</span>,
+  <span class="c-f">"ledger"</span>: <span class="c-t">"committed"</span>
+}</pre>
+              </div>
+            </div>
+            <p class="arch-event"><span class="ev-bolt">⚡</span><span class="ev-topic">order.filled</span><span class="ev-arrow">→</span><span>email-svc · notify-svc · audit-log</span></p>
+          </div>
+
+          <span class="tile t-node" title="Node.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nodejs/nodejs-original.svg" alt="" width="30" height="30"></span>
+            <span class="tile t-pg" title="PostgreSQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="" width="30" height="30"></span>
+            <span class="tile t-ts" title="TypeScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" alt="" width="30" height="30"></span>
+            <span class="tile t-redis" title="Redis"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/redis/redis-original.svg" alt="" width="30" height="30"></span>
+            <span class="tile t-docker" title="Docker"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="" width="30" height="30"></span>
+            <span class="tile t-react" title="React"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="" width="30" height="30"></span>
+            <span class="tile t-aws" title="AWS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" width="30" height="30"></span>
+
+          <p class="note n1">Scalable<br>architecture</p>
+          <svg class="arrow a1" viewBox="0 0 60 50"><path d="M52 4 C 40 10, 26 22, 12 40 M12 40 L 13 28 M12 40 L 24 37"/></svg>
+          <p class="note n2">Watch an order<br>flow through it</p>
+          <svg class="arrow a2" viewBox="0 0 70 40"><path d="M6 30 C 22 8, 44 6, 62 14 M62 14 L 50 6 M62 14 L 52 22"/></svg>
+        </div>
       </div>
     </section>
 
@@ -166,7 +280,7 @@
         <header class="sec-head reveal"><span class="sec-num">01</span><h2 class="title">About</h2></header>
         <div class="sec-body">
           <p class="lead reveal">I like the parts of software most people never see: the services, schemas and failure paths that decide whether a payment actually goes through.</p>
-          <p class="reveal">I've spent a little over two years building web applications and backend systems with Node.js, TypeScript, PostgreSQL, MongoDB and Redis. Most of that work has been microservices, authentication and wiring products into third-party providers.</p>
+          <p class="reveal">I've spent <span data-from="2024-06" data-format="words">a little over two years</span> building web applications and backend systems with Node.js, TypeScript, PostgreSQL, MongoDB and Redis. Most of that work has been microservices, authentication and wiring products into third-party providers.</p>
           <p class="reveal">At <strong>WrathCode Technology</strong> I work on AGCX, a regulated crypto exchange: wallets, transactions, fiat on/off-ramp, KYC and security. Before that, at <strong>Octodo Solutions</strong>, I built the whole digital platform for Design2Occupancy, from the public website and CMS to the CRM, work orders, payments and a Tally ERP integration. That came to more than 400 REST and gRPC APIs.</p>
 
           <ul class="focus-list reveal" aria-label="What I focus on">
@@ -330,7 +444,7 @@
         <header class="sec-head reveal"><span class="sec-num">05</span><h2 class="title">Experience</h2></header>
         <ol class="xp sec-body">
           <li class="reveal">
-            <p class="xp-when">Jun 2026 – now <span class="xp-now"><span class="live-dot" aria-hidden="true"></span>Current</span></p>
+            <p class="xp-when">Jun 2026 – now <span class="xp-dur">· <span data-from="2026-06" data-format="short">4 mos</span></span> <span class="xp-now"><span class="live-dot" aria-hidden="true"></span>Current</span></p>
             <div>
               <h3>Full Stack Developer <span class="at">at WrathCode Technology</span></h3>
               <p class="xp-where">Jaipur, Rajasthan</p>
@@ -345,7 +459,7 @@
             </div>
           </li>
           <li class="reveal">
-            <p class="xp-when">Jun 2024 – May 2026</p>
+            <p class="xp-when">Jun 2024 – May 2026 <span class="xp-dur">· 2 yrs</span></p>
             <div>
               <h3>Full Stack Developer <span class="at">at Octodo Solutions</span></h3>
               <p class="xp-where">Jaipur, Rajasthan</p>
@@ -441,6 +555,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=10" defer></script>
+  <script src="js/main.js?v=16" defer></script>
 </body>
 </html>

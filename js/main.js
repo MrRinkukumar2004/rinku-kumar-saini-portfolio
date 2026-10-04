@@ -151,6 +151,142 @@
     controls.forEach((f) => f.addEventListener("input", () => f.closest(".field").classList.remove("invalid")));
   }
 
+  /* ---------- Experience, always counted from the start date ---------- */
+  // <span data-from="2024-06" data-format="years|words|short"> is rewritten on load, so the numbers never go stale
+  const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
+  const monthsSince = (ym) => {
+    const [y, m] = ym.split("-").map(Number), now = new Date();
+    return Math.max(0, (now.getFullYear() - y) * 12 + (now.getMonth() + 1 - m));
+  };
+  const formatSpan = (months, format) => {
+    const y = Math.floor(months / 12), r = months % 12;
+    const word = (n) => WORDS[n] || String(n);
+    const plural = (n, unit) => `${n} ${unit}${n === 1 ? "" : "s"}`;
+    if (format === "short") {
+      if (months < 12) return `${Math.max(months, 1)} mo${months === 1 ? "" : "s"}`;
+      return r ? `${y} yr${y === 1 ? "" : "s"} ${r} mo${r === 1 ? "" : "s"}` : `${y} yr${y === 1 ? "" : "s"}`;
+    }
+    if (format === "words") {
+      if (months < 12) return months <= 1 ? "the past month" : `the past ${word(months)} months`;
+      if (r === 0) return plural(word(y), "year");
+      if (r <= 5) return `a little over ${plural(word(y), "year")}`;
+      return `nearly ${plural(word(y + 1), "year")}`;
+    }
+    if (format === "num") return String(y);
+    if (months < 12) return plural(Math.max(months, 1), "month");
+    return r ? `${y}+ years` : plural(y, "year");
+  };
+  $$("[data-from]").forEach((el) => { el.textContent = formatSpan(monthsSince(el.dataset.from), el.dataset.format); });
+
+  /* ---------- Hero stats count up when they come into view ---------- */
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const countUp = (el) => {
+    const to = Number(el.textContent);
+    if (reduceMotion || !to) return;
+    const start = performance.now(), dur = 1200;
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach((en) => { if (en.isIntersecting) { countUp(en.target); countObs.unobserve(en.target); } });
+  });
+  $$(".count").forEach((el) => countObs.observe(el));
+
+  /* ---------- Hero: animated request flow through the microservices ---------- */
+  const arch = $(".arch");
+  if (arch) {
+    const NS = "http://www.w3.org/2000/svg";
+    const svg = $(".arch-svg", arch), layer = $("#pkts", svg);
+    const statusEl = $("#arch-status", arch);
+    const node = (id) => $("#n-" + id, svg);
+    const edge = (id) => $("#e-" + id, svg);
+    const SERVICES = ["auth", "kyc", "wallet", "trading", "ledger"];
+    const CONSUMERS = ["email", "notify", "audit"];
+    const setStatus = (text, cls) => { statusEl.textContent = text; statusEl.className = "arch-status" + (cls ? " " + cls : ""); };
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    let visible = false;
+    const whenVisible = () => new Promise((resolve) => {
+      const check = () => (visible && !document.hidden ? resolve() : setTimeout(check, 300));
+      check();
+    });
+
+    // Send a packet along an SVG path; kind: "req" (blue), "res" (green) or "evt" (orange)
+    const travel = (path, { back = false, dur = 600, kind = "req" } = {}) => new Promise((resolve) => {
+      const halo = document.createElementNS(NS, "circle"), dot = document.createElementNS(NS, "circle");
+      halo.setAttribute("r", 8); halo.setAttribute("class", "pkt-halo " + kind);
+      dot.setAttribute("r", 3.6); dot.setAttribute("class", "pkt " + kind);
+      layer.append(halo, dot);
+      const len = path.getTotalLength(), t0 = performance.now(), cls = kind === "evt" ? "evt" : back ? "back" : "active";
+      path.classList.add(cls);
+      const step = (now) => {
+        const p = Math.min((now - t0) / dur, 1), e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+        const pt = path.getPointAtLength(len * (back ? 1 - e : e));
+        [halo, dot].forEach((c) => { c.setAttribute("cx", pt.x); c.setAttribute("cy", pt.y); });
+        if (p < 1) return requestAnimationFrame(step);
+        path.classList.remove(cls); halo.remove(); dot.remove(); resolve();
+      };
+      requestAnimationFrame(step);
+    });
+    const reset = () => {
+      $$(".node", svg).forEach((n) => n.classList.remove("on", "done"));
+      arch.classList.remove("answered", "evented"); arch.classList.add("waiting", "no-event");
+    };
+
+    async function cycle() {
+      reset();
+      setStatus("sending", "busy"); arch.classList.add("sending");
+      await sleep(400);
+      await travel(edge("client"), { dur: 550 });
+      arch.classList.remove("sending");
+      node("gateway").classList.add("on"); setStatus("→ gateway", "busy");
+      await sleep(200);
+      for (const id of SERVICES) {
+        await whenVisible();
+        await travel(edge(id), { dur: 460 });
+        node(id).classList.add("on"); setStatus(id + "-svc", "busy");
+        await sleep(220);
+        node(id).classList.replace("on", "done");
+        await travel(edge(id), { back: true, dur: 380 });
+      }
+      node("gateway").classList.replace("on", "done");
+      // The response and the async event fan-out happen at the same time
+      const respond = (async () => {
+        await travel(edge("client"), { back: true, dur: 600, kind: "res" });
+        node("client").classList.add("done");
+        arch.classList.replace("waiting", "answered"); setStatus("201 Created", "ok");
+      })();
+      const publish = (async () => {
+        await travel(edge("pub"), { dur: 420, kind: "evt" });
+        node("kafka").classList.add("on");
+        arch.classList.replace("no-event", "evented");
+        await sleep(200);
+        await Promise.all(CONSUMERS.map(async (id, i) => {
+          await sleep(i * 120);
+          await travel(edge(id), { dur: 420, kind: "evt" });
+          node(id).classList.add("on");
+          await sleep(300);
+          node(id).classList.replace("on", "done");
+        }));
+        node("kafka").classList.remove("on");
+      })();
+      await Promise.all([respond, publish]);
+      setStatus("201 · order.filled", "ok");
+      await sleep(2600);
+    }
+
+    if (reduceMotion) {
+      [...SERVICES, ...CONSUMERS, "gateway", "client"].forEach((id) => node(id).classList.add("done"));
+      arch.classList.add("answered", "evented"); setStatus("201 Created", "ok");
+    } else {
+      new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(arch);
+      (async () => { await sleep(900); for (;;) { await whenVisible(); await cycle(); } })();
+    }
+  }
+
   /* ---------- Footer year ---------- */
   const y = $("#year");
   if (y) y.textContent = new Date().getFullYear();
