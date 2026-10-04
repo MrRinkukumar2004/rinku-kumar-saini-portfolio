@@ -97,11 +97,11 @@
     <nav class="nav container" aria-label="Main">
       <a class="logo" href="#home" aria-label="Rinku Kumar Saini, home"><span class="logo-mark">rks</span><span class="logo-name">Rinku Kumar Saini</span></a>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="share">
@@ -268,31 +268,11 @@
       </div>
     </section>
 
-    <!-- ============ ABOUT ============ -->
-    <section class="section" id="about">
-      <div class="container split">
-        <header class="sec-head reveal"><span class="sec-num">01</span><h2 class="title">About</h2></header>
-        <div class="sec-body">
-          <p class="lead reveal">I like the parts of software most people never see: the services, schemas and failure paths that decide whether a payment actually goes through.</p>
-          <p class="reveal">I've spent <span data-from="2024-06" data-format="words">a little over two years</span> building web applications and backend systems with Node.js, TypeScript, PostgreSQL, MongoDB and Redis. Most of that work has been microservices, authentication and wiring products into third-party providers.</p>
-          <p class="reveal">At <strong>WrathCode Technology</strong> I work on AGCX, a regulated crypto exchange: wallets, transactions, fiat on/off-ramp, KYC and security. Before that, at <strong>Octodo Solutions</strong>, I built the whole digital platform for Design2Occupancy, from the public website and CMS to the CRM, work orders, payments and a Tally ERP integration. That came to more than 400 REST and gRPC APIs.</p>
-
-          <ul class="focus-list reveal" aria-label="What I focus on">
-            <li><strong>Backend &amp; full stack</strong><span>Node.js, TypeScript, React</span></li>
-            <li><strong>Microservices &amp; DDD</strong><span>Clear service boundaries, gRPC between them</span></li>
-            <li><strong>Data</strong><span>PostgreSQL, MongoDB and Redis: schemas, indexes, caching</span></li>
-            <li><strong>Auth &amp; access</strong><span>OAuth 2.0 / OIDC, Passkeys, RBAC / ABAC / PBAC</span></li>
-            <li><strong>Delivery</strong><span>Docker and Kubernetes</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ WORK ============ -->
     <section class="section" id="work">
       <div class="container">
         <div class="split split-head">
-          <header class="sec-head reveal"><span class="sec-num">02</span><h2 class="title">Selected work</h2></header>
+          <header class="sec-head reveal"><span class="sec-num">01</span><h2 class="title">Selected work</h2></header>
           <p class="sec-intro reveal">Three products I've built that are running in production. Each one has a write-up covering what I built and how.</p>
         </div>
 
@@ -348,11 +328,95 @@
       </div>
     </section>
 
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container split">
+        <header class="sec-head reveal"><span class="sec-num">02</span><h2 class="title">Experience</h2></header>
+        <ol class="xp sec-body">
+          <li class="reveal">
+            <p class="xp-when">Jun 2026 – now <span class="xp-dur">· <span data-from="2026-06" data-format="short">4 mos</span></span> <span class="xp-now"><span class="live-dot" aria-hidden="true"></span>Current</span></p>
+            <div>
+              <h3>Full Stack Developer <span class="at">at WrathCode Technology</span></h3>
+              <p class="xp-where">Jaipur, Rajasthan</p>
+              <ul class="dash">
+                <li>Building backend services for AGCX, a regulated crypto exchange, in Node.js, TypeScript, PostgreSQL, Redis and gRPC.</li>
+                <li>Designed the wallet, deposit, withdrawal and transfer workflows, including the transaction lifecycle, validation and failure recovery.</li>
+                <li>Built fiat-to-crypto and crypto-to-fiat flows with Zand Bank and CryptoSwift.</li>
+                <li>Integrated Fireblocks, Chainalysis, Binance and Didit KYC.</li>
+                <li>Implemented Passkeys, OAuth 2.0 / OIDC, Apple sign-in, API keys and RBAC / ABAC / PBAC.</li>
+                <li>Services follow DDD and Clean Architecture and run on Docker and Kubernetes.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="reveal">
+            <p class="xp-when">Jun 2024 – May 2026 <span class="xp-dur">· 2 yrs</span></p>
+            <div>
+              <h3>Full Stack Developer <span class="at">at Octodo Solutions</span></h3>
+              <p class="xp-where">Jaipur, Rajasthan</p>
+              <ul class="dash">
+                <li>Built the complete digital platform for Design2Occupancy: website, CMS, CRM, work orders and payments.</li>
+                <li>Developed 400+ REST APIs and gRPC services across CRM, projects, notifications and reporting.</li>
+                <li>Integrated Tally ERP with automated payment reminders and deadline follow-ups.</li>
+                <li>Integrated Google Drive, HubSpot and Insightly CRM, and added real-time features over WebSockets.</li>
+                <li>Implemented RBAC / ABAC / PBAC with JWT and OAuth 2.0 authentication.</li>
+                <li>Tuned PostgreSQL and MS SQL queries and indexes, improving performance by about 25%.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="reveal">
+            <p class="xp-when">2020 – 2024</p>
+            <div>
+              <h3>B.Tech, Electrical Engineering <span class="at">at Arya College of Engineering &amp; IT</span></h3>
+              <p class="xp-where">Jaipur · CGPA 9.0 · Full Stack Fellowship at Crio.Do</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="container split">
+        <header class="sec-head reveal"><span class="sec-num">03</span><h2 class="title">Skills</h2></header>
+        <div class="sec-body">
+          <p class="sec-intro reveal">The tools I reach for day to day, grouped roughly by where they sit in a system.</p>
+          <dl class="skill-table reveal">
+            <div><dt>Backend</dt><dd><ul class="inline"><li>Node.js</li><li>TypeScript</li><li>JavaScript</li><li>Express.js</li><li>REST APIs</li><li>gRPC</li><li>WebSockets</li><li>Sequelize</li></ul></dd></div>
+            <div><dt>Databases</dt><dd><ul class="inline"><li>PostgreSQL</li><li>MongoDB</li><li>MS SQL Server</li><li>Redis</li><li>Schema design</li><li>Query optimization</li></ul></dd></div>
+            <div><dt>Architecture &amp; security</dt><dd><ul class="inline"><li>Microservices</li><li>DDD</li><li>Clean Architecture</li><li>RBAC / ABAC / PBAC</li><li>OAuth 2.0 / OIDC</li><li>Passkeys / JWT</li></ul></dd></div>
+            <div><dt>Frontend</dt><dd><ul class="inline"><li>React.js</li><li>Redux</li><li>HTML5</li><li>CSS3</li><li>Tailwind CSS</li></ul></dd></div>
+            <div><dt>DevOps &amp; cloud</dt><dd><ul class="inline"><li>Docker</li><li>Kubernetes</li><li>Linux</li><li>Nginx</li><li>PM2</li><li>AWS</li></ul></dd></div>
+            <div><dt>Tools &amp; FinTech</dt><dd><ul class="inline"><li>Git</li><li>GitHub Actions</li><li>Postman</li><li>Swagger</li><li>Fireblocks</li><li>Chainalysis</li><li>KYC providers</li></ul></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container split">
+        <header class="sec-head reveal"><span class="sec-num">04</span><h2 class="title">About</h2></header>
+        <div class="sec-body">
+          <p class="lead reveal">I like the parts of software most people never see: the services, schemas and failure paths that decide whether a payment actually goes through.</p>
+          <p class="reveal">I've spent <span data-from="2024-06" data-format="words">a little over two years</span> building web applications and backend systems with Node.js, TypeScript, PostgreSQL, MongoDB and Redis. Most of that work has been microservices, authentication and wiring products into third-party providers.</p>
+          <p class="reveal">At <strong>WrathCode Technology</strong> I work on AGCX, a regulated crypto exchange: wallets, transactions, fiat on/off-ramp, KYC and security. Before that, at <strong>Octodo Solutions</strong>, I built the whole digital platform for Design2Occupancy, from the public website and CMS to the CRM, work orders, payments and a Tally ERP integration. That came to more than 400 REST and gRPC APIs.</p>
+
+          <ul class="focus-list reveal" aria-label="What I focus on">
+            <li><strong>Backend &amp; full stack</strong><span>Node.js, TypeScript, React</span></li>
+            <li><strong>Microservices &amp; DDD</strong><span>Clear service boundaries, gRPC between them</span></li>
+            <li><strong>Data</strong><span>PostgreSQL, MongoDB and Redis: schemas, indexes, caching</span></li>
+            <li><strong>Auth &amp; access</strong><span>OAuth 2.0 / OIDC, Passkeys, RBAC / ABAC / PBAC</span></li>
+            <li><strong>Delivery</strong><span>Docker and Kubernetes</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ SERVICES ============ -->
     <section class="section" id="services">
       <div class="container">
         <div class="split split-head">
-          <header class="sec-head reveal"><span class="sec-num">03</span><h2 class="title">Services</h2></header>
+          <header class="sec-head reveal"><span class="sec-num">05</span><h2 class="title">Services</h2></header>
           <div class="reveal">
             <p class="sec-intro">Alongside my full-time work I take on freelance projects. If you have something in mind, from a single feature to a whole product, I'm happy to talk it through, even if you're not sure yet what you need.</p>
             <p class="avail"><span class="live-dot" aria-hidden="true"></span>Taking on freelance work</p>
@@ -411,70 +475,6 @@
             <li><span>4</span><strong>Hand over</strong>Deployment, documentation and the source code, plus support after launch.</li>
           </ol>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ SKILLS ============ -->
-    <section class="section" id="skills">
-      <div class="container split">
-        <header class="sec-head reveal"><span class="sec-num">04</span><h2 class="title">Skills</h2></header>
-        <div class="sec-body">
-          <p class="sec-intro reveal">The tools I reach for day to day, grouped roughly by where they sit in a system.</p>
-          <dl class="skill-table reveal">
-            <div><dt>Backend</dt><dd><ul class="inline"><li>Node.js</li><li>TypeScript</li><li>JavaScript</li><li>Express.js</li><li>REST APIs</li><li>gRPC</li><li>WebSockets</li><li>Sequelize</li></ul></dd></div>
-            <div><dt>Databases</dt><dd><ul class="inline"><li>PostgreSQL</li><li>MongoDB</li><li>MS SQL Server</li><li>Redis</li><li>Schema design</li><li>Query optimization</li></ul></dd></div>
-            <div><dt>Architecture &amp; security</dt><dd><ul class="inline"><li>Microservices</li><li>DDD</li><li>Clean Architecture</li><li>RBAC / ABAC / PBAC</li><li>OAuth 2.0 / OIDC</li><li>Passkeys / JWT</li></ul></dd></div>
-            <div><dt>Frontend</dt><dd><ul class="inline"><li>React.js</li><li>Redux</li><li>HTML5</li><li>CSS3</li><li>Tailwind CSS</li></ul></dd></div>
-            <div><dt>DevOps &amp; cloud</dt><dd><ul class="inline"><li>Docker</li><li>Kubernetes</li><li>Linux</li><li>Nginx</li><li>PM2</li><li>AWS</li></ul></dd></div>
-            <div><dt>Tools &amp; FinTech</dt><dd><ul class="inline"><li>Git</li><li>GitHub Actions</li><li>Postman</li><li>Swagger</li><li>Fireblocks</li><li>Chainalysis</li><li>KYC providers</li></ul></dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ EXPERIENCE ============ -->
-    <section class="section" id="experience">
-      <div class="container split">
-        <header class="sec-head reveal"><span class="sec-num">05</span><h2 class="title">Experience</h2></header>
-        <ol class="xp sec-body">
-          <li class="reveal">
-            <p class="xp-when">Jun 2026 – now <span class="xp-dur">· <span data-from="2026-06" data-format="short">4 mos</span></span> <span class="xp-now"><span class="live-dot" aria-hidden="true"></span>Current</span></p>
-            <div>
-              <h3>Full Stack Developer <span class="at">at WrathCode Technology</span></h3>
-              <p class="xp-where">Jaipur, Rajasthan</p>
-              <ul class="dash">
-                <li>Building backend services for AGCX, a regulated crypto exchange, in Node.js, TypeScript, PostgreSQL, Redis and gRPC.</li>
-                <li>Designed the wallet, deposit, withdrawal and transfer workflows, including the transaction lifecycle, validation and failure recovery.</li>
-                <li>Built fiat-to-crypto and crypto-to-fiat flows with Zand Bank and CryptoSwift.</li>
-                <li>Integrated Fireblocks, Chainalysis, Binance and Didit KYC.</li>
-                <li>Implemented Passkeys, OAuth 2.0 / OIDC, Apple sign-in, API keys and RBAC / ABAC / PBAC.</li>
-                <li>Services follow DDD and Clean Architecture and run on Docker and Kubernetes.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="reveal">
-            <p class="xp-when">Jun 2024 – May 2026 <span class="xp-dur">· 2 yrs</span></p>
-            <div>
-              <h3>Full Stack Developer <span class="at">at Octodo Solutions</span></h3>
-              <p class="xp-where">Jaipur, Rajasthan</p>
-              <ul class="dash">
-                <li>Built the complete digital platform for Design2Occupancy: website, CMS, CRM, work orders and payments.</li>
-                <li>Developed 400+ REST APIs and gRPC services across CRM, projects, notifications and reporting.</li>
-                <li>Integrated Tally ERP with automated payment reminders and deadline follow-ups.</li>
-                <li>Integrated Google Drive, HubSpot and Insightly CRM, and added real-time features over WebSockets.</li>
-                <li>Implemented RBAC / ABAC / PBAC with JWT and OAuth 2.0 authentication.</li>
-                <li>Tuned PostgreSQL and MS SQL queries and indexes, improving performance by about 25%.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="reveal">
-            <p class="xp-when">2020 – 2024</p>
-            <div>
-              <h3>B.Tech, Electrical Engineering <span class="at">at Arya College of Engineering &amp; IT</span></h3>
-              <p class="xp-where">Jaipur · CGPA 9.0 · Full Stack Fellowship at Crio.Do</p>
-            </div>
-          </li>
-        </ol>
       </div>
     </section>
 

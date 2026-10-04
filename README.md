@@ -69,7 +69,7 @@ After changing any CSS or JS file, bump the `?v=` number on the `<link>` and `<s
 
 ## Editing
 
-- Home page text: `index.html` (sections are `home`, `about`, `work`, `services`, `skills`, `experience`, `contact`).
+- Home page text: `index.html` (sections in order: `home`, `work`, `experience`, `skills`, `about`, `services`, `contact`).
 - Project write-ups: `projects/agcx.html`, `projects/walker.html`, `projects/d2o.html`.
 - Colours, fonts and corner radius: the variables at the top of `css/style.css`.
 - Share text: the `text` line in the share menu section of `js/main.js`.
