@@ -220,14 +220,21 @@
       halo.setAttribute("r", 8); halo.setAttribute("class", "pkt-halo " + kind);
       dot.setAttribute("r", 3.6); dot.setAttribute("class", "pkt " + kind);
       layer.append(halo, dot);
-      const len = path.getTotalLength(), t0 = performance.now(), cls = kind === "evt" ? "evt" : back ? "back" : "active";
-      path.classList.add(cls);
+      const len = path.getTotalLength(), t0 = performance.now();
+      // A copy of the path drawn progressively behind the packet, like a request trace
+      const trail = document.createElementNS(NS, "path");
+      trail.setAttribute("d", path.getAttribute("d")); trail.setAttribute("class", "trail " + kind);
+      path.after(trail);
       const step = (now) => {
         const p = Math.min((now - t0) / dur, 1), e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
         const pt = path.getPointAtLength(len * (back ? 1 - e : e));
         [halo, dot].forEach((c) => { c.setAttribute("cx", pt.x); c.setAttribute("cy", pt.y); });
+        trail.style.strokeDasharray = `${len * e} ${len}`;
+        trail.style.strokeDashoffset = back ? -len * (1 - e) : 0;
         if (p < 1) return requestAnimationFrame(step);
-        path.classList.remove(cls); halo.remove(); dot.remove(); resolve();
+        halo.remove(); dot.remove();
+        trail.classList.add("fade"); setTimeout(() => trail.remove(), 500);
+        resolve();
       };
       requestAnimationFrame(step);
     });
