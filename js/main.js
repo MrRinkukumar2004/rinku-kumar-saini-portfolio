@@ -294,6 +294,31 @@
     }
   }
 
+  /* ---------- Pattern effects: cursor spotlight + automatic light sweep, per section ---------- */
+  const finePointer = matchMedia("(pointer: fine)").matches;
+  $$(".hero, .section").forEach((el, i) => {
+    const fx = document.createElement("div");
+    fx.className = "fx"; fx.setAttribute("aria-hidden", "true");
+    fx.innerHTML = '<span class="fx-spot"></span><span class="fx-flash"></span>';
+    const bg = $(".hero-bg", el);
+    bg ? bg.after(fx) : el.prepend(fx);
+    // Stagger the sweeps so sections don't all flash at the same moment
+    fx.style.setProperty("--flash-delay", `${(i * 1.3) % 8}s`);
+
+    if (!finePointer || reduceMotion) return;
+    let raf = 0;
+    el.addEventListener("pointermove", (e) => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        el.style.setProperty("--my", `${e.clientY - r.top}px`);
+      });
+    });
+    el.addEventListener("pointerenter", () => el.classList.add("spot-on"));
+    el.addEventListener("pointerleave", () => el.classList.remove("spot-on"));
+  });
+
   /* ---------- Footer year ---------- */
   const y = $("#year");
   if (y) y.textContent = new Date().getFullYear();

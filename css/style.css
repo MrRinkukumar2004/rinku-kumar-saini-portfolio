@@ -19,6 +19,16 @@
   --header-bg: rgba(13, 14, 17, 0.78);
   --menu-bg: rgba(13, 14, 17, 0.97);
   --shadow: rgba(0, 0, 0, 0.45);
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --grid-hi: rgba(143, 176, 255, 0.35);
+  --dot: rgba(255, 255, 255, 0.09);
+  --glow-a: rgba(91, 132, 255, 0.16);
+  --glow-b: rgba(212, 165, 72, 0.13);
+  --gold: #E3B34C;
+  --gold-2: #F6D88A;
+  --gold-deep: #B8862B;
+  --gold-glow: rgba(227, 179, 76, 0.14);
+  --gold-line: rgba(227, 179, 76, 0.42);
   --btn-hover: #FFFFFF;
 
   /* Aliases used by the project pages */
@@ -58,6 +68,16 @@
   --header-bg: rgba(250, 250, 248, 0.82);
   --menu-bg: rgba(250, 250, 248, 0.98);
   --shadow: rgba(23, 24, 27, 0.08);
+  --grid-line: rgba(23, 24, 27, 0.055);
+  --grid-hi: rgba(36, 72, 216, 0.28);
+  --dot: rgba(23, 24, 27, 0.12);
+  --glow-a: rgba(36, 72, 216, 0.10);
+  --glow-b: rgba(196, 146, 42, 0.12);
+  --gold: #B8862B;
+  --gold-2: #E0B455;
+  --gold-deep: #8F6514;
+  --gold-glow: rgba(196, 146, 42, 0.12);
+  --gold-line: rgba(184, 134, 43, 0.38);
   --btn-hover: #33353B;
   --soft: rgba(23, 24, 27, 0.025);
   color-scheme: light;
@@ -181,7 +201,26 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .share-menu .done, .share-menu .done .ic { color: var(--ok); }
 
 /* ---------- Hero ---------- */
-.hero { padding-top: calc(var(--header-h) + 72px); padding-bottom: 88px; overflow: hidden; }
+.hero { position: relative; isolation: isolate; padding-top: calc(var(--header-h) + 72px); padding-bottom: 88px; overflow: hidden; }
+/* Hero background: graph-paper grid, soft glows and a grid spotlight that follows the cursor */
+.hero-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.hb-grid, .hb-glow { position: absolute; inset: 0; }
+.hb-grid {
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px; background-position: center top;
+}
+.hb-grid {
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 60% 40%, #000 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse 75% 70% at 60% 40%, #000 25%, transparent 78%);
+}
+.hb-glow {
+  background:
+    radial-gradient(520px 380px at 74% 42%, var(--glow-a), transparent 70%),
+    radial-gradient(420px 320px at 8% 88%, var(--glow-b), transparent 70%),
+    radial-gradient(300px 220px at 96% 8%, var(--gold-glow), transparent 70%);
+  animation: glow-drift 16s ease-in-out infinite alternate;
+}
+@keyframes glow-drift { to { transform: translate(-24px, 16px) scale(1.04); } }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; }
 .kicker {
   display: inline-flex; align-items: center; gap: 10px; margin-bottom: 26px; padding: 6px 12px 6px 10px; border-radius: 999px;
@@ -191,7 +230,13 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .hero-name { display: block; font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.5rem); line-height: 1.05; margin-bottom: 12px; white-space: nowrap; }
 .hero-sub { display: block; font-size: clamp(1.5rem, 1.05rem + 1.6vw, 2.4rem); line-height: 1.16; letter-spacing: -0.03em; max-width: 21ch; }
 .hero-blue { color: var(--accent); }
-.script { position: relative; display: inline-block; font-family: "Caveat", var(--serif), cursive; font-weight: 600; font-size: 1.32em; line-height: 1; letter-spacing: 0; color: var(--accent); padding: 0 2px; }
+.script { position: relative; display: inline-block; font-family: "Caveat", var(--serif), cursive; font-weight: 600; font-size: 1.32em; line-height: 1; letter-spacing: 0; color: var(--gold); padding: 0 2px; }
+.script-text {
+  background: linear-gradient(100deg, var(--gold-deep) 0%, var(--gold) 30%, var(--gold-2) 50%, var(--gold) 70%, var(--gold-deep) 100%);
+  background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: gold-shimmer 5s ease-in-out infinite;
+}
+@keyframes gold-shimmer { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0 0; } }
 .scribble { position: absolute; left: 0; right: 0; bottom: -0.16em; width: 100%; height: 0.32em; overflow: visible; }
 .scribble path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 420; stroke-dashoffset: 420; }
 .js .hero-title.in .scribble path { animation: draw 1.1s var(--ease) .7s forwards; }
@@ -312,7 +357,47 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 @keyframes ping { 0% { transform: scale(.6); opacity: .7; } 80%, 100% { transform: scale(1.6); opacity: 0; } }
 
 /* ---------- Sections ---------- */
-.section { padding-block: 112px; border-top: 1px solid var(--line); }
+.section { position: relative; isolation: isolate; padding-block: 112px; border-top: 1px solid var(--line); }
+.section::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+/* Pattern effects shared by the hero and every section (layers injected by main.js):
+   .fx-spot reveals the section's pattern in gold around the cursor; .fx-flash sweeps a band of light across it */
+.hero { --pat-img: linear-gradient(var(--gold-line) 1px, transparent 1px), linear-gradient(90deg, var(--gold-line) 1px, transparent 1px); --pat-size: 56px 56px; --pat-pos: center top; --pat-mask: radial-gradient(ellipse 75% 70% at 60% 40%, #000 25%, transparent 78%); }
+.section { --pat-img: linear-gradient(var(--gold-line) 1px, transparent 1px), linear-gradient(90deg, var(--gold-line) 1px, transparent 1px); --pat-size: 48px 48px; --pat-pos: center top; --pat-mask: linear-gradient(90deg, #000, transparent 24%, transparent 76%, #000); }
+
+.fx { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.fx-spot, .fx-flash { position: absolute; inset: 0; background-image: var(--pat-img); background-size: var(--pat-size); background-position: var(--pat-pos, 0 0); }
+.fx-spot {
+  opacity: 0; transition: opacity .4s;
+  -webkit-mask-image: radial-gradient(210px circle at var(--mx, -999px) var(--my, -999px), #000, transparent 72%);
+  mask-image: radial-gradient(210px circle at var(--mx, -999px) var(--my, -999px), #000, transparent 72%);
+}
+.fx-spot::after { content: ""; position: absolute; inset: 0; background: radial-gradient(240px circle at var(--mx, -999px) var(--my, -999px), var(--gold-glow), transparent 70%); }
+.spot-on > .fx .fx-spot { opacity: 1; }
+.fx-flash {
+  opacity: 1; filter: brightness(1.7) saturate(1.25);
+  -webkit-mask-image: var(--pat-mask), linear-gradient(135deg, transparent 44%, #000 49%, #000 51%, transparent 56%);
+  mask-image: var(--pat-mask), linear-gradient(135deg, transparent 44%, #000 49%, #000 51%, transparent 56%);
+  -webkit-mask-size: 100% 100%, 300% 300%; mask-size: 100% 100%, 300% 300%;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: 0 0, 90% 90%; mask-position: 0 0, 90% 90%;
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+  animation: flash-sweep 8s ease-in-out infinite; animation-delay: var(--flash-delay, 0s);
+}
+@keyframes flash-sweep {
+  0% { -webkit-mask-position: 0 0, 90% 90%; mask-position: 0 0, 90% 90%; }
+  38%, 100% { -webkit-mask-position: 0 0, 10% 10%; mask-position: 0 0, 10% 10%; }
+}
+
+/* Static background: the same fine grid on both side edges of every section, with gold glows on each side */
+.section::before {
+  background-image:
+    radial-gradient(420px 360px at 0% 50%, var(--gold-glow), transparent 70%),
+    radial-gradient(420px 360px at 100% 50%, var(--gold-glow), transparent 70%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  background-position: 0 0, 0 0, center top, center top;
+  -webkit-mask-image: var(--pat-mask); mask-image: var(--pat-mask);
+}
 .split { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 48px; }
 .sec-head .title { white-space: nowrap; }
 .sec-head { display: flex; align-items: baseline; gap: 14px; align-self: start; position: sticky; top: calc(var(--header-h) + 32px); }
@@ -541,6 +626,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
   .hero-visual { height: auto; }
   .arch { position: relative; left: auto; top: auto; width: 100%; }
   .note, .arrow { display: none; }
+  .hb-grid { -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 30%, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse 90% 60% at 50% 30%, #000 20%, transparent 75%); }
   .hero-visual { padding-top: 0; }
   .focus-list li, .skill-table > div, .xp > li { grid-template-columns: 1fr; gap: 6px; }
   .xp-when { line-height: 1.6; }
