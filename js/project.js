@@ -1,9 +1,9 @@
-/* Project detail pages: contents highlight, share, screenshot lightbox, reveal */
+// case study pages
 (() => {
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
-  /* ---------- Reveal on scroll ---------- */
+  // reveal on scroll
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
       if (!en.isIntersecting) return;
@@ -13,12 +13,12 @@
   }, { rootMargin: "0px 0px -8% 0px" });
   $$(".reveal").forEach((el) => revealObs.observe(el));
 
-  /* ---------- Contents: highlight the section in view ---------- */
+  // highlight the current section in the contents
   const tocLinks = $$(".toc a");
   const setActive = (id) => tocLinks.forEach((a) => {
     const on = a.getAttribute("href") === "#" + id;
     a.classList.toggle("active", on);
-    // keep the active chip visible in the horizontal mobile bar
+    // on mobile the contents is a scrolling row, keep the active one in view
     if (on && a.parentElement.parentElement.scrollWidth > a.parentElement.parentElement.clientWidth) {
       a.scrollIntoView({ block: "nearest", inline: "center" });
     }
@@ -28,7 +28,7 @@
   }, { rootMargin: "-30% 0px -60% 0px" });
   tocLinks.forEach((a) => { const s = $(a.getAttribute("href")); if (s) tocObs.observe(s); });
 
-  /* ---------- Toast ---------- */
+  // toast
   const toast = $(".toast");
   let toastTimer;
   function showToast(msg) {
@@ -39,7 +39,7 @@
     toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
   }
 
-  /* ---------- Share ---------- */
+  // share
   $("#share")?.addEventListener("click", async () => {
     const data = { title: document.title, url: location.href };
     if (navigator.share) {
@@ -50,7 +50,7 @@
     catch { showToast("Copy the link from the address bar"); }
   });
 
-  /* ---------- Screenshot lightbox ---------- */
+  // screenshot lightbox
   const box = $("#lightbox");
   if (box) {
     const img = $("img", box), cap = $("p", box);
@@ -64,7 +64,7 @@
     box.addEventListener("click", (e) => { if (e.target === box) box.close(); });
   }
 
-  /* ---------- Hide screenshots that fail to load ---------- */
+  // drop screenshots that fail to load
   $$(".gallery img").forEach((im) => {
     const drop = () => im.closest("figure")?.remove();
     if (im.complete && im.naturalWidth === 0) drop(); else im.addEventListener("error", drop);

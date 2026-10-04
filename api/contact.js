@@ -1,5 +1,5 @@
-// Vercel serverless function: POST /api/contact → emails the message to you via Resend (https://resend.com)
-// Needs env vars in Vercel: RESEND_API_KEY, CONTACT_TO_EMAIL (optional: CONTACT_FROM_EMAIL)
+// POST /api/contact - emails me the contact form through Resend
+// env: RESEND_API_KEY, CONTACT_TO_EMAIL, and optionally CONTACT_FROM_EMAIL
 
 const TOPICS = ["Job opportunity", "Freelance project", "Something else"];
 const LIMITS = { name: 100, email: 200, message: 5000 };
@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
 
   const body = typeof req.body === "string" ? safeJson(req.body) : req.body || {};
 
-  // Honeypot: real visitors never see or fill the "company" field, bots usually do
+  // honeypot: people never see the "company" field, bots fill it in
   if (body.company) return res.status(200).json({ ok: true });
 
   const name = clean(body.name, LIMITS.name);

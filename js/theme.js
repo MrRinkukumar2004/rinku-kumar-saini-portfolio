@@ -1,4 +1,4 @@
-// Light/dark theme: dark by default, loaded in <head> so a saved choice applies before first paint
+// theme switch. dark by default; loaded in <head> so the saved choice applies before first paint
 (() => {
   const root = document.documentElement;
   const KEY = "theme";
@@ -21,7 +21,7 @@
   apply(saved() === "light" ? "light" : "dark");
 
   document.addEventListener("DOMContentLoaded", () => {
-    apply(root.getAttribute("data-theme")); // refresh button labels + meta now that they exist
+    apply(root.getAttribute("data-theme")); // buttons exist now, so set their labels
     document.querySelectorAll(".theme-btn").forEach((btn) => btn.addEventListener("click", () => {
       const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
       root.classList.add("theme-anim");

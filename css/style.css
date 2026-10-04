@@ -1,6 +1,6 @@
-/* Rinku Kumar Saini – portfolio styles (dark default, light via data-theme) */
+/* Rinku Kumar Saini - portfolio. dark by default, light via [data-theme="light"] */
 :root {
-  /* Palette – dark */
+  /* colours (dark) */
   --bg: #0D0E11;
   --bg-2: #111317;
   --surface: #15171C;
@@ -31,17 +31,17 @@
   --gold-line: rgba(227, 179, 76, 0.42);
   --btn-hover: #FFFFFF;
 
-  /* Aliases used by the project pages */
+  /* used by the project pages */
   --card-bg: var(--surface);
   --glass: var(--surface);
   --soft: rgba(255, 255, 255, 0.025);
 
-  /* Type */
+  /* type */
   --font: "Geist", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
   --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
   --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
 
-  /* Shape + layout */
+  /* shape + layout */
   --radius: 8px;
   --radius-sm: 6px;
   --container: 1280px;
@@ -83,7 +83,7 @@
   color-scheme: light;
 }
 
-/* ---------- Base ---------- */
+/* base */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); -webkit-text-size-adjust: 100%; }
 body {
@@ -108,12 +108,12 @@ button { font: inherit; color: inherit; }
 .skip { position: absolute; left: -999px; top: 10px; z-index: 100; background: var(--text); color: var(--bg); padding: 8px 14px; border-radius: 8px; }
 .skip:focus { left: 12px; }
 
-/* Smooth colour crossfade while switching themes (class added briefly by theme.js) */
+/* theme.js adds this for a moment so the switch fades instead of snapping */
 html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *::after {
   transition: background-color .3s ease, border-color .3s ease, color .3s ease, fill .3s ease !important;
 }
 
-/* ---------- Buttons & links ---------- */
+/* buttons + links */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: 11px 18px; border-radius: var(--radius-sm); font-weight: 500; font-size: 0.94rem; line-height: 1.2;
@@ -131,7 +131,7 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .btn-sm { padding: 7px 13px; font-size: 0.86rem; border-radius: 8px; }
 .btn-block { width: 100%; }
 
-/* Underlined text link with an arrow that nudges on hover */
+/* text links with the little arrow */
 .link-arrow, .link-plain {
   display: inline-flex; align-items: baseline; gap: 6px; font-weight: 500;
   background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 100% 1px;
@@ -144,7 +144,7 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .link-plain:hover { color: var(--text); background-size: 100% 1px; }
 .link-plain:hover span { transform: translate(2px, -2px); }
 
-/* ---------- Header ---------- */
+/* header */
 .header {
   position: fixed; inset: 0 0 auto 0; z-index: 50;
   padding-top: env(safe-area-inset-top, 0px);
@@ -166,7 +166,7 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .menu-btn { display: none; background: none; border: 1px solid var(--line); border-radius: 8px; width: 38px; height: 38px; place-items: center; cursor: pointer; }
 .menu-btn .ic { width: 20px; height: 20px; }
 
-/* Theme toggle */
+/* theme toggle */
 .theme-btn {
   position: relative; width: 36px; height: 36px; flex: none; border-radius: 8px; display: grid; place-items: center; cursor: pointer;
   border: 1px solid var(--line); background: transparent; color: var(--muted); overflow: hidden; transition: color .2s, border-color .2s;
@@ -177,7 +177,7 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 :root[data-theme="light"] .theme-btn .i-sun { transform: rotate(90deg) scale(.5); opacity: 0; }
 :root[data-theme="light"] .theme-btn .i-moon { transform: none; opacity: 1; }
 
-/* Share button + menu */
+/* share menu */
 .share { position: relative; }
 .icon-btn {
   width: 36px; height: 36px; flex: none; border-radius: 8px; display: grid; place-items: center; cursor: pointer;
@@ -200,9 +200,9 @@ html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *
 .share-menu .ic { width: 15px; height: 15px; }
 .share-menu .done, .share-menu .done .ic { color: var(--ok); }
 
-/* ---------- Hero ---------- */
+/* hero */
 .hero { position: relative; isolation: isolate; padding-top: calc(var(--header-h) + 72px); padding-bottom: 88px; overflow: hidden; }
-/* Hero background: graph-paper grid, soft glows and a grid spotlight that follows the cursor */
+/* hero background: grid + two soft glows */
 .hero-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .hb-grid, .hb-glow { position: absolute; inset: 0; }
 .hb-grid {
@@ -252,7 +252,7 @@ html:not(.js) .scribble path { stroke-dashoffset: 0; }
 .hero-stats strong { font-size: 1.6rem; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; font-variant-numeric: tabular-nums; }
 .hero-stats li > span { color: var(--muted); font-size: 0.8rem; line-height: 1.35; }
 
-/* Visual: animated microservice request flow, floating tech tiles, handwritten notes */
+/* hero diagram, stack strip and the handwritten note */
 .hero-visual { position: relative; padding-top: 58px; }
 .arch {
   position: relative; z-index: 2;
@@ -289,7 +289,7 @@ html:not(.js) .scribble path { stroke-dashoffset: 0; }
 .pkt.evt, .pkt-halo.evt { fill: #F5A524; }
 .edge.async { stroke-dasharray: 3 3; animation: dash-flow 1.4s linear infinite; }
 @keyframes dash-flow { to { stroke-dashoffset: -12; } }
-/* Trace that lights up behind each moving packet */
+/* trail behind each packet */
 .trail { fill: none; stroke-width: 2; stroke-linecap: round; transition: opacity .45s; }
 .trail.req { stroke: #82AAFF; } .trail.res { stroke: #4ADE80; } .trail.evt { stroke: #F5A524; }
 .trail.fade { opacity: 0; }
@@ -320,7 +320,7 @@ html:not(.js) .scribble path { stroke-dashoffset: 0; }
 .arch.waiting .io-res { opacity: .25; }
 .arch.answered .io-res { background: rgba(74, 222, 128, 0.05); }
 
-/* Tech stack marquee under the diagram */
+/* stack strip */
 .stack-marquee {
   position: relative; margin-top: 18px; overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -354,10 +354,10 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 .live-dot::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; border: 1px solid var(--ok); opacity: 0; animation: ping 2.4s var(--ease) infinite; }
 @keyframes ping { 0% { transform: scale(.6); opacity: .7; } 80%, 100% { transform: scale(1.6); opacity: 0; } }
 
-/* ---------- Sections ---------- */
+/* sections */
 .section { position: relative; isolation: isolate; padding-block: 112px; border-top: 1px solid var(--line); }
 .section::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
-/* Automatic diagonal light sweep over the grid (layer injected by main.js); no mouse effect */
+/* diagonal shine over the grid (main.js adds the span) */
 .hero { --pat-img: linear-gradient(var(--gold-line) 1px, transparent 1px), linear-gradient(90deg, var(--gold-line) 1px, transparent 1px); --pat-size: 56px 56px; --pat-mask: radial-gradient(ellipse 75% 70% at 60% 40%, #000 25%, transparent 78%); }
 .section { --pat-img: linear-gradient(var(--gold-line) 1px, transparent 1px), linear-gradient(90deg, var(--gold-line) 1px, transparent 1px); --pat-size: 48px 48px; --pat-mask: linear-gradient(90deg, #000, transparent 24%, transparent 76%, #000); }
 .fx-flash {
@@ -379,7 +379,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 
 }
 
-/* Static background: the same fine grid on both side edges of every section, with gold glows on each side */
+/* section backgrounds: grid on both edges + a gold glow each side */
 .section::before {
   background-image:
     radial-gradient(420px 360px at 0% 50%, var(--gold-glow), transparent 70%),
@@ -399,7 +399,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 .split-head { align-items: end; margin-bottom: 56px; }
 .split-head .sec-head { position: static; }
 
-/* About */
+/* about */
 .lead { font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem); line-height: 1.45; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1.2em; }
 #about .sec-body > p:not(.lead) { color: var(--muted); }
 #about strong { color: var(--text); font-weight: 500; }
@@ -408,7 +408,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 .focus-list strong { font-weight: 500; }
 .focus-list span { color: var(--muted); }
 
-/* Work */
+/* work */
 .work {
   display: grid; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface);
   transition: border-color .3s;
@@ -433,7 +433,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 .stack { font-family: var(--mono); font-size: 0.78rem; color: var(--faint); line-height: 1.7; margin: 4px 0 24px; }
 .work-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 22px; margin-top: auto; font-size: 0.93rem; }
 
-/* Services */
+/* services */
 .avail { display: inline-flex; align-items: center; gap: 10px; margin: 18px 0 0; font-family: var(--mono); font-size: 0.8rem; color: var(--ok); }
 .services { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
 .services > li { position: relative; padding: 30px 32px 30px 0; border-bottom: 1px solid var(--line); }
@@ -454,7 +454,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 .process li span { display: block; font-family: var(--mono); font-size: 0.76rem; color: var(--faint); margin-bottom: 10px; }
 .process li strong { display: block; color: var(--text); font-weight: 500; font-size: 1rem; margin-bottom: 4px; }
 
-/* Skills */
+/* skills */
 .skill-table { margin-top: 40px; border-bottom: 1px solid var(--line); }
 .skill-table > div { display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--line); }
 .skill-table dt { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); padding-top: 3px; }
@@ -462,7 +462,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 .inline li { white-space: nowrap; }
 .inline li:not(:last-child)::after { content: ","; margin-right: 0.45em; color: var(--faint); }
 
-/* Experience */
+/* experience */
 .xp { border-bottom: 1px solid var(--line); }
 .xp > li { display: grid; grid-template-columns: 170px 1fr; gap: 24px; padding: 30px 0; border-top: 1px solid var(--line); }
 .xp > li:first-child { border-top: 0; padding-top: 4px; }
@@ -476,7 +476,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 .dash li { position: relative; padding-left: 20px; color: var(--muted); margin-bottom: 8px; line-height: 1.55; }
 .dash li::before { content: "–"; position: absolute; left: 0; color: var(--faint); }
 
-/* Contact */
+/* contact */
 .contact-lead { font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.4rem); font-weight: 500; line-height: 1.15; letter-spacing: -0.035em; max-width: 20ch; margin-bottom: 28px; }
 .email-row { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 16px; margin-bottom: 10px; }
 .email {
@@ -496,7 +496,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 48px; margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
 .form { display: grid; gap: 26px; padding-top: 8px; }
-/* Floating labels: rest inside the empty field, then rise into a notch on the border */
+/* floating labels */
 .field { position: relative; }
 .field label {
   position: absolute; top: 26px; left: 9px; z-index: 1; transform: translateY(-50%); transform-origin: left center;
@@ -531,7 +531,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 .field select + label { top: 0; transform: translateY(-50%) scale(0.82); color: var(--muted); background-size: 100% 50%, auto; }
 .field select:focus + label { color: var(--text); }
 .select-chevron { position: absolute; right: 14px; top: 50%; width: 16px; height: 16px; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
-/* Honeypot field for bots, hidden from people and screen readers */
+/* honeypot */
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .btn[disabled] { opacity: .6; cursor: progress; }
 .field.invalid input, .field.invalid textarea { border-color: #E5484D; }
@@ -546,12 +546,12 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 .elsewhere li a span { color: var(--faint); transition: transform .25s var(--ease), color .2s; }
 .elsewhere li a:hover span { color: var(--accent); transform: translate(2px, -2px); }
 
-/* Footer */
+/* footer */
 .footer { border-top: 1px solid var(--line); padding-block: 28px; padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); font-size: 0.88rem; }
 .footer-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px 24px; flex-wrap: wrap; }
 .footer p { margin: 0; }
 
-/* ---------- Shared bits used by project pages ---------- */
+/* bits the project pages reuse */
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; font-family: var(--mono); font-size: 0.78rem; color: var(--faint); }
 .eyebrow-line { display: none; }
 .grad { color: var(--text); }
@@ -561,7 +561,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 @keyframes pop { from { opacity: 0; transform: translateY(8px) scale(0.99); } }
 .m-close { position: absolute; top: 12px; right: 12px; z-index: 2; width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; display: grid; place-items: center; }
 
-/* ---------- Reveal on scroll (JS only, so content never stays hidden) ---------- */
+/* reveal on scroll (only with js, so nothing stays hidden without it) */
 .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
 .js .reveal.in { opacity: 1; transform: none; }
 .js .hero .reveal:nth-child(2) { transition-delay: .08s; }
@@ -570,7 +570,7 @@ html:not(.js) .arrow path { stroke-dashoffset: 0; }
 .js .hero-visual.reveal { transition-delay: .15s; }
 .js .work-pair .reveal:nth-child(2) { transition-delay: .1s; }
 
-/* ---------- Responsive ---------- */
+/* responsive */
 @media (min-width: 1600px) {
   :root { --container: 1360px; }
 }

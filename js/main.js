@@ -1,15 +1,15 @@
-/* Rinku Kumar Saini – Portfolio interactions */
+// home page scripts
 (() => {
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
-  /* ---------- Header background once the page scrolls ---------- */
+  // header gets a background once you scroll
   const header = $("#header");
   const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  /* ---------- Mobile menu ---------- */
+  // mobile menu
   const menuBtn = $("#menu-btn");
   const links = $("#nav-links");
   function setMenu(open) {
@@ -23,7 +23,7 @@
   links.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
   addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
 
-  /* ---------- Active nav link ---------- */
+  // highlight the nav link for the section in view
   const navLinks = $$(".nav-links a");
   const navObs = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
@@ -33,11 +33,11 @@
   }, { rootMargin: "-45% 0px -50% 0px" });
   ["#home", ...navLinks.map((a) => a.getAttribute("href"))].forEach((id) => { const s = $(id); if (s) navObs.observe(s); });
 
-  /* ---------- Share menu ---------- */
+  // share menu
   const shareBtn = $("#share-btn");
   const shareMenu = $("#share-menu");
   if (shareBtn && shareMenu) {
-    // Share the live site even when the page is opened from a local file
+    // always share the live url, even when I'm testing from a local file
     const url = $('link[rel="canonical"]')?.href || location.href;
     const text = "Rinku Kumar Saini – Full Stack Developer (Node.js, TypeScript, microservices)";
     const enc = encodeURIComponent;
@@ -76,7 +76,7 @@
     });
   }
 
-  /* ---------- Reveal on scroll ---------- */
+  // fade things in as they scroll into view
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
       if (!en.isIntersecting) return;
@@ -86,7 +86,7 @@
   }, { rootMargin: "0px 0px -6% 0px" });
   $$(".reveal").forEach((el) => revealObs.observe(el));
 
-  /* ---------- Copy email ---------- */
+  // copy email
   $$(".copy").forEach((btn) => btn.addEventListener("click", async () => {
     const use = $("use", btn), label = $(".copy-label", btn);
     try {
@@ -104,8 +104,8 @@
     }
   }));
 
-  /* ---------- Contact form ---------- */
-  // Posts to /api/contact (Vercel function that emails me); falls back to the visitor's mail app if that isn't available
+  // contact form
+  // posts to /api/contact (vercel function that emails me), falls back to mailto if the api isn't there
   const form = $("#contact-form");
   const status = $("#form-status");
   if (form) {
@@ -131,7 +131,7 @@
 
       const data = Object.fromEntries(new FormData(form));
       const endpoint = form.dataset.endpoint;
-      // The API only exists on the deployed site, not when the page is opened as a local file
+      // no api when the page is opened straight from disk
       if (!endpoint || location.protocol === "file:") return openMailApp(data);
 
       submitBtn.disabled = true;
@@ -151,8 +151,9 @@
     controls.forEach((f) => f.addEventListener("input", () => f.closest(".field").classList.remove("invalid")));
   }
 
-  /* ---------- Experience, always counted from the start date ---------- */
-  // <span data-from="2024-06" data-format="years|words|short"> is rewritten on load, so the numbers never go stale
+  // experience counter
+  // counted from the start month so I never have to bump "2+ years" by hand
+  // usage: <span data-from="2024-06" data-format="years|words|short|num">
   const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"];
   const monthsSince = (ym) => {
     const [y, m] = ym.split("-").map(Number), now = new Date();
@@ -178,7 +179,7 @@
   };
   $$("[data-from]").forEach((el) => { el.textContent = formatSpan(monthsSince(el.dataset.from), el.dataset.format); });
 
-  /* ---------- Hero stats count up when they come into view ---------- */
+  // count-up for the hero stats
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const countUp = (el) => {
     const to = Number(el.textContent);
@@ -196,7 +197,7 @@
   });
   $$(".count").forEach((el) => countObs.observe(el));
 
-  /* ---------- Hero: animated request flow through the microservices ---------- */
+  // hero diagram: one order through gateway → services, then kafka fans out the event
   const arch = $(".arch");
   if (arch) {
     const NS = "http://www.w3.org/2000/svg";
@@ -214,14 +215,14 @@
       check();
     });
 
-    // Send a packet along an SVG path; kind: "req" (blue), "res" (green) or "evt" (orange)
+    // kind: req (blue), res (green), evt (orange)
     const travel = (path, { back = false, dur = 600, kind = "req" } = {}) => new Promise((resolve) => {
       const halo = document.createElementNS(NS, "circle"), dot = document.createElementNS(NS, "circle");
       halo.setAttribute("r", 8); halo.setAttribute("class", "pkt-halo " + kind);
       dot.setAttribute("r", 3.6); dot.setAttribute("class", "pkt " + kind);
       layer.append(halo, dot);
       const len = path.getTotalLength(), t0 = performance.now();
-      // A copy of the path drawn progressively behind the packet, like a request trace
+      // trail is a copy of the path that draws in behind the dot
       const trail = document.createElementNS(NS, "path");
       trail.setAttribute("d", path.getAttribute("d")); trail.setAttribute("class", "trail " + kind);
       path.after(trail);
@@ -260,7 +261,7 @@
         await travel(edge(id), { back: true, dur: 380 });
       }
       node("gateway").classList.replace("on", "done");
-      // The response and the async event fan-out happen at the same time
+      // response goes back while the event is published, like the real flow
       const respond = (async () => {
         await travel(edge("client"), { back: true, dur: 600, kind: "res" });
         node("client").classList.add("done");
@@ -294,17 +295,17 @@
     }
   }
 
-  /* ---------- Automatic diagonal light sweep over each section's grid ---------- */
+  // diagonal shine over the background grid
   $$(".hero, .section").forEach((el, i) => {
     const flash = document.createElement("span");
     flash.className = "fx-flash"; flash.setAttribute("aria-hidden", "true");
-    // Stagger the sweeps so sections don't all flash at the same moment
+    // offset each one so they don't all fire together
     flash.style.setProperty("--flash-delay", `${(i * 1.3) % 8}s`);
     const bg = $(".hero-bg", el);
     bg ? bg.after(flash) : el.prepend(flash);
   });
 
-  /* ---------- Footer year ---------- */
+  // footer year
   const y = $("#year");
   if (y) y.textContent = new Date().getFullYear();
 })();
